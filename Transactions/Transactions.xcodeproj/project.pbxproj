@@ -32,6 +32,10 @@
 		18DC135521F16FEA00A8436C /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC135421F16FEA00A8436C /* ProfilePresenter.swift */; };
 		18DC135821F1707E00A8436C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC135721F1707E00A8436C /* UserInfo.swift */; };
 		18DC135A21F173C100A8436C /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC135921F173C100A8436C /* ProfileInteractor.swift */; };
+		18DC135D21F1FEE100A8436C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC135C21F1FEE100A8436C /* UIView+Extensions.swift */; };
+		18DC135F21F2051B00A8436C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC135E21F2051B00A8436C /* Colors.swift */; };
+		18DC136321F22AAE00A8436C /* DescriptionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC136121F22AAE00A8436C /* DescriptionItemCell.swift */; };
+		18DC136421F22AAE00A8436C /* DescriptionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DC136221F22AAE00A8436C /* DescriptionItemCell.xib */; };
 		524F905523C34B18B8842215 /* Pods_TransactionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86EAE2089EA3327EB3A6915 /* Pods_TransactionsTests.framework */; };
 		B2517911C15906E625F4695F /* Pods_Transactions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E41EFDE5C1A86C741ACA784 /* Pods_Transactions.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +80,10 @@
 		18DC135421F16FEA00A8436C /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		18DC135721F1707E00A8436C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		18DC135921F173C100A8436C /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		18DC135C21F1FEE100A8436C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		18DC135E21F2051B00A8436C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		18DC136121F22AAE00A8436C /* DescriptionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionItemCell.swift; sourceTree = "<group>"; };
+		18DC136221F22AAE00A8436C /* DescriptionItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionItemCell.xib; sourceTree = "<group>"; };
 		27D35F6C9419B6A044470884 /* Pods-TransactionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransactionsTests/Pods-TransactionsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E41EFDE5C1A86C741ACA784 /* Pods_Transactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67280AEECB6B1F79CF15FAF /* Pods-TransactionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransactionsTests/Pods-TransactionsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,7 +259,9 @@
 		18AD930721F0B2FF00C0D0C4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				18DC135B21F1FC8E00A8436C /* Extensions */,
 				18AD930821F0B31600C0D0C4 /* Constants.swift */,
+				18DC135E21F2051B00A8436C /* Colors.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -305,6 +315,7 @@
 			children = (
 				18DC135021F16CCC00A8436C /* ProfileViewController.swift */,
 				18DC135121F16CCC00A8436C /* ProfileViewController.xib */,
+				18DC136021F229B700A8436C /* CustomViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +326,23 @@
 				18DC135721F1707E00A8436C /* UserInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18DC135B21F1FC8E00A8436C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18DC135C21F1FEE100A8436C /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		18DC136021F229B700A8436C /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				18DC136121F22AAE00A8436C /* DescriptionItemCell.swift */,
+				18DC136221F22AAE00A8436C /* DescriptionItemCell.xib */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		239169E0EF82881DE6B4D8EF /* Pods */ = {
@@ -421,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DC136421F22AAE00A8436C /* DescriptionItemCell.xib in Resources */,
 				18DC135321F16CCC00A8436C /* ProfileViewController.xib in Resources */,
 				18AD92D721EF61BE00C0D0C4 /* LaunchScreen.storyboard in Resources */,
 				18AD92FA21EF864600C0D0C4 /* BalanceItemCell.xib in Resources */,
@@ -502,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AD92CD21EF61BD00C0D0C4 /* AppDelegate.swift in Sources */,
+				18DC135F21F2051B00A8436C /* Colors.swift in Sources */,
 				18AD930621F09C6E00C0D0C4 /* TransactionsAPIError.swift in Sources */,
 				18AD930421F09C4C00C0D0C4 /* GrenericResponse.swift in Sources */,
 				18AD92F921EF864600C0D0C4 /* BalanceItemCell.swift in Sources */,
@@ -513,9 +543,11 @@
 				18AD92F421EF65F300C0D0C4 /* TransactionsListViewController.swift in Sources */,
 				18AD930221F09C1500C0D0C4 /* TransactionsAPI.swift in Sources */,
 				18DC135521F16FEA00A8436C /* ProfilePresenter.swift in Sources */,
+				18DC135D21F1FEE100A8436C /* UIView+Extensions.swift in Sources */,
 				18AD930921F0B31600C0D0C4 /* Constants.swift in Sources */,
 				18DC134321F1395100A8436C /* TransactionList.swift in Sources */,
 				18DC135221F16CCC00A8436C /* ProfileViewController.swift in Sources */,
+				18DC136321F22AAE00A8436C /* DescriptionItemCell.swift in Sources */,
 				18DC134521F1563000A8436C /* TransactionAppRouter.swift in Sources */,
 				18DC135A21F173C100A8436C /* ProfileInteractor.swift in Sources */,
 				18DC133B21F0F72900A8436C /* Transaction.swift in Sources */,

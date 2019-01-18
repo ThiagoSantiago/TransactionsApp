@@ -15,6 +15,7 @@ protocol TransactionsListDisplayLogic: class {
 
 class TransactionsListViewController: UIViewController {
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userImageView: UIImageView!
     
@@ -43,9 +44,8 @@ class TransactionsListViewController: UIViewController {
     }
     
     fileprivate func configView() {
-        self.userImageView.layer.borderColor = UIColor.white.cgColor
-        self.userImageView.layer.borderWidth = 2.0
-        self.userImageView.layer.cornerRadius = 30
+        self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 30)
+//        self.headerView.setGradient(startColor: Colors.lightPink.cgColor, finalColor: Colors.darkPink.cgColor)
     }
     
     fileprivate func registerTableViewCells() {

@@ -12,7 +12,7 @@ struct TransactionList: Decodable {
     var transactions: [Transaction]
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        self.transactions = try container.decode([Transaction].self)
+        let values = try decoder.singleValueContainer()
+        self.transactions = try values.decode([Transaction].self)
     }
 }

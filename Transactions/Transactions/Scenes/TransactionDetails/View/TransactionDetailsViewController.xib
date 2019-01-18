@@ -36,7 +36,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPw-Cl-Nar">
-                            <rect key="frame" x="8" y="37" width="30" height="63"/>
+                            <rect key="frame" x="8" y="30" width="30" height="63"/>
                             <fontDescription key="fontDescription" type="system" pointSize="42"/>
                             <state key="normal" title="&lt;">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,8 +48,8 @@
                     </subviews>
                     <color key="backgroundColor" red="0.86666666670000003" green="0.31372549020000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="QPw-Cl-Nar" firstAttribute="top" secondItem="aLj-2X-Mk9" secondAttribute="top" constant="30" id="1iP-Xh-jiC"/>
                         <constraint firstItem="urc-MA-E4O" firstAttribute="top" secondItem="aLj-2X-Mk9" secondAttribute="top" constant="48" id="6Gr-uv-UCt"/>
-                        <constraint firstItem="urc-MA-E4O" firstAttribute="centerY" secondItem="QPw-Cl-Nar" secondAttribute="centerY" id="Wqo-7s-Eev"/>
                         <constraint firstAttribute="height" constant="120" id="XgG-63-SX1"/>
                         <constraint firstItem="QPw-Cl-Nar" firstAttribute="leading" secondItem="aLj-2X-Mk9" secondAttribute="leading" constant="8" id="kjY-un-W33"/>
                         <constraint firstItem="urc-MA-E4O" firstAttribute="leading" secondItem="QPw-Cl-Nar" secondAttribute="trailing" constant="4" id="xB7-O3-S2d"/>

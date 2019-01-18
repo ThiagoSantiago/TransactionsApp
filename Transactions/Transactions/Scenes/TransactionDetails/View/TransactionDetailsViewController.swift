@@ -26,13 +26,13 @@ class TransactionDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configViews()
         setTransactionInfos()
-        
+    }
+    
+    func configViews() {
         self.infosContentView.layer.cornerRadius = 8
-        self.infosContentView.layer.shadowColor = UIColor.black.cgColor
-        self.infosContentView.layer.shadowOpacity = 0.6
-        self.infosContentView.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
-        self.infosContentView.layer.shadowRadius = 5.0
+        self.infosContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
     }
     
     func setTransactionInfos() {
@@ -73,7 +73,6 @@ class TransactionDetailsViewController: UIViewController {
     
         mapView.addAnnotation(annotation)
     }
-    
 }
 
 extension TransactionDetailsViewController {

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionsListViewController" customModule="Transactions" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="QuD-RP-xQa" id="4El-Bu-qGc"/>
                 <outlet property="tableView" destination="f08-Za-SYT" id="iXv-Tu-gTS"/>
                 <outlet property="userImageView" destination="Iqr-WE-5dk" id="PO5-Px-GBz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -57,7 +58,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.8666666666666667" green="0.31372549019607843" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.86666666670000003" green="0.31372549020000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="2nu-pR-eZz" firstAttribute="top" secondItem="QuD-RP-xQa" secondAttribute="top" constant="48" id="4Ts-I4-Hl7"/>
                         <constraint firstAttribute="trailing" secondItem="Iqr-WE-5dk" secondAttribute="trailing" constant="16" id="60e-x6-60R"/>
