@@ -84,6 +84,9 @@
             <connections>
                 <outlet property="labelsContentView" destination="GRo-ip-nyD" id="IOl-fc-qHo"/>
                 <outlet property="tansactionIndicatorView" destination="HHl-WK-yrj" id="qlI-P0-2Md"/>
+                <outlet property="transactionDateLabel" destination="KIy-ti-Jb9" id="dEt-7Z-nfj"/>
+                <outlet property="transactionNameLabel" destination="lKc-Hs-rfY" id="dha-jN-eAb"/>
+                <outlet property="transactionValueLabel" destination="tPI-YM-lyN" id="nVb-dG-QTx"/>
             </connections>
             <point key="canvasLocation" x="199.19999999999999" y="124.58770614692655"/>
         </tableViewCell>

@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: homeController)
         navigationController.view.frame = self.window!.bounds
         navigationController.isNavigationBarHidden = true
+        
+        TransactionAppRouter.setupRouter(navigationController: navigationController)
+        
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         

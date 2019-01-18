@@ -10,6 +10,9 @@ import UIKit
 
 class BalanceItemCell: UITableViewCell {
     
+    @IBOutlet weak var transactionNameLabel: UILabel!
+    @IBOutlet weak var transactionValueLabel: UILabel!
+    @IBOutlet weak var transactionDateLabel: UILabel!
     @IBOutlet weak var labelsContentView: UIView!
     @IBOutlet weak var tansactionIndicatorView: UIImageView!
 
