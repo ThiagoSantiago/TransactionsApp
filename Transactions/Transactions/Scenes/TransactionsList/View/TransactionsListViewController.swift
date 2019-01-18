@@ -84,4 +84,8 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        TransactionAppRouter.routeToDetails(transaction: transactionData[indexPath.row])
+    }
 }

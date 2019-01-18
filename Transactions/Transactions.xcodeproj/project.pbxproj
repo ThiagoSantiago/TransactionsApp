@@ -25,6 +25,8 @@
 		18DC134121F0FEE300A8436C /* TransactionListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC134021F0FEE300A8436C /* TransactionListPresenter.swift */; };
 		18DC134321F1395100A8436C /* TransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC134221F1395100A8436C /* TransactionList.swift */; };
 		18DC134521F1563000A8436C /* TransactionAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC134421F1563000A8436C /* TransactionAppRouter.swift */; };
+		18DC134A21F159EC00A8436C /* TransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC134821F159EC00A8436C /* TransactionDetailsViewController.swift */; };
+		18DC134B21F159EC00A8436C /* TransactionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DC134921F159EC00A8436C /* TransactionDetailsViewController.xib */; };
 		524F905523C34B18B8842215 /* Pods_TransactionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86EAE2089EA3327EB3A6915 /* Pods_TransactionsTests.framework */; };
 		B2517911C15906E625F4695F /* Pods_Transactions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E41EFDE5C1A86C741ACA784 /* Pods_Transactions.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		18DC134021F0FEE300A8436C /* TransactionListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListPresenter.swift; sourceTree = "<group>"; };
 		18DC134221F1395100A8436C /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		18DC134421F1563000A8436C /* TransactionAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAppRouter.swift; sourceTree = "<group>"; };
+		18DC134821F159EC00A8436C /* TransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsViewController.swift; sourceTree = "<group>"; };
+		18DC134921F159EC00A8436C /* TransactionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsViewController.xib; sourceTree = "<group>"; };
 		27D35F6C9419B6A044470884 /* Pods-TransactionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransactionsTests/Pods-TransactionsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E41EFDE5C1A86C741ACA784 /* Pods_Transactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67280AEECB6B1F79CF15FAF /* Pods-TransactionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransactionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransactionsTests/Pods-TransactionsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		18AD92ED21EF651A00C0D0C4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				18DC134621F1597E00A8436C /* TransactionDetails */,
 				18AD92EE21EF652D00C0D0C4 /* TransactionsList */,
 			);
 			path = Scenes;
@@ -238,6 +243,23 @@
 				18AD930821F0B31600C0D0C4 /* Constants.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		18DC134621F1597E00A8436C /* TransactionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				18DC134721F159C200A8436C /* View */,
+			);
+			path = TransactionDetails;
+			sourceTree = "<group>";
+		};
+		18DC134721F159C200A8436C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18DC134821F159EC00A8436C /* TransactionDetailsViewController.swift */,
+				18DC134921F159EC00A8436C /* TransactionDetailsViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		239169E0EF82881DE6B4D8EF /* Pods */ = {
@@ -348,6 +370,7 @@
 				18AD92FA21EF864600C0D0C4 /* BalanceItemCell.xib in Resources */,
 				18AD92F521EF65F300C0D0C4 /* TransactionsListViewController.xib in Resources */,
 				18AD92D421EF61BE00C0D0C4 /* Assets.xcassets in Resources */,
+				18DC134B21F159EC00A8436C /* TransactionDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +451,7 @@
 				18AD92F921EF864600C0D0C4 /* BalanceItemCell.swift in Sources */,
 				18AD92FF21F0094F00C0D0C4 /* TransactionsWorker.swift in Sources */,
 				18DC133F21F0FB7600A8436C /* TransactionListInteractor.swift in Sources */,
+				18DC134A21F159EC00A8436C /* TransactionDetailsViewController.swift in Sources */,
 				18DC134121F0FEE300A8436C /* TransactionListPresenter.swift in Sources */,
 				18AD92F421EF65F300C0D0C4 /* TransactionsListViewController.swift in Sources */,
 				18AD930221F09C1500C0D0C4 /* TransactionsAPI.swift in Sources */,
