@@ -28,4 +28,21 @@ class TransactionsWorker {
             }
         }
     }
+    
+    typealias GetUserSuccess = (_ userInfo: UserInfo) -> Void
+    func getUserInfo(success: @escaping GetUserSuccess, failure: @escaping Failure) {
+        TransactionsAPI.request(.getUserInfos()) { (result: Result<UserInfo>) in
+            switch result {
+            case .success(let user):
+                success(user)
+            case .failure(let error):
+                guard let apiError = error as? TransactionsAPIError else {
+                    failure(TransactionsAPIError.unknownResponse)
+                    return
+                }
+                
+                failure(apiError)
+            }
+        }
+    }
 }

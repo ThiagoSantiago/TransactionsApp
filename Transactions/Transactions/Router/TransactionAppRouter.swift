@@ -10,11 +10,11 @@ import UIKit
 
 protocol TransactionsAppRoutingProtocol {
     static func popView()
+    static func routeToUserProfile()
     static func routeToDetails(transaction: Transaction)
 }
 
 class TransactionAppRouter: TransactionsAppRoutingProtocol {
-
     var navigationController: UINavigationController?
     
     private static var sharedRouter: TransactionAppRouter = {
@@ -33,6 +33,16 @@ class TransactionAppRouter: TransactionsAppRoutingProtocol {
     static func popView() {
         if let navigationController = self.sharedRouter.navigationController {
             navigationController.popViewController(animated: true)
+        }
+    }
+    
+    static func routeToUserProfile() {
+        let viewController = ProfileViewController()
+        
+        if let navigationController = self.sharedRouter.navigationController {
+            navigationController.pushViewController(viewController, animated: true)
+        } else {
+            print("Present error trying to access the view controller.")
         }
     }
     

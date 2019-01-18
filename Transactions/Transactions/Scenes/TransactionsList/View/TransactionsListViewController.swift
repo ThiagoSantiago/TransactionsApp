@@ -89,3 +89,9 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
         TransactionAppRouter.routeToDetails(transaction: transactionData[indexPath.row])
     }
 }
+
+extension TransactionsListViewController {
+    @IBAction func userProfilePressed(_ sender: Any) {
+        TransactionAppRouter.routeToUserProfile()
+    }
+}

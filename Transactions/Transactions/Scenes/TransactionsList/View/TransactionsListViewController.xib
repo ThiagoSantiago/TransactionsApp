@@ -52,6 +52,9 @@
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0L-gK-TfI">
                             <rect key="frame" x="299" y="48" width="60" height="60"/>
+                            <connections>
+                                <action selector="userProfilePressed:" destination="-1" eventType="touchUpInside" id="WWw-PD-Tfa"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.8666666666666667" green="0.31372549019607843" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
