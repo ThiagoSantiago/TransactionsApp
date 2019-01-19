@@ -10,16 +10,18 @@ import UIKit
 
 protocol TransactionsListDisplayLogic: class {
     func displayError(message: String)
-    func displayTransactions(list: [Transaction])
+    func displayTransactions(list: TransactionsListViewModel)
 }
 
 class TransactionsListViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var totalBalanceLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    var transactionData: [Transaction] = []
+    var nextpage = ""
+    var transactionData: [TransactionViewModel] = []
     var interactor: TransactionListInteractor?
     
     override func viewDidLoad() {
@@ -58,8 +60,10 @@ extension TransactionsListViewController: TransactionsListDisplayLogic {
         print("Error message: \(message)")
     }
     
-    func displayTransactions(list: [Transaction]) {
-        self.transactionData = list
+    func displayTransactions(list: TransactionsListViewModel) {
+        self.nextpage = list.nextPage
+        self.transactionData = list.transactions
+        self.totalBalanceLabel.text = list.totalBalance
         self.tableView.reloadData()
     }
 }
@@ -74,13 +78,7 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
         
         let transaction = transactionData[indexPath.row]
         
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .currency
-        
-        cell.transactionNameLabel.text = transaction.description
-        cell.transactionDateLabel.text = transaction.date
-        cell.transactionValueLabel.text = transaction.amount
+        cell.setContent(transaction: transaction)
         
         return cell
     }

@@ -18,7 +18,7 @@ class TransactionListInteractor: TransactionListBusinessLogic {
     
     func getTransactionsList() {
         worker.getTransactions(success: { transactionList in
-            self.presenter?.presentList(transactionList.transactions)
+            self.presenter?.presentList(transactionList)
         }) { error in
             self.presenter?.presentError(error)
         }

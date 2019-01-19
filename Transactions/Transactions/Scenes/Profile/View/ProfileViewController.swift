@@ -9,20 +9,23 @@
 import UIKit
 
 protocol ProfileDisplayLogic: class {
+    typealias UserViewModel = [(title: String, description: String)]
+    
     func displayError(message: String)
-    func displayUser(info: UserInfo)
+    func displayUser(info: UserViewModel)
 }
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var infoContentView: UIView!
-    @IBOutlet weak var changePhotoButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userImageView: UIImageView!
+    @IBOutlet weak private var infoContentView: UIView!
+    @IBOutlet weak private var changePhotoButton: UIButton!
+    @IBOutlet weak private var tableView: UITableView!
     
-    var interactor: ProfileInteractor?
-    let imagePicker = UIImagePickerController()
+    private var interactor: ProfileInteractor?
+    private let imagePicker = UIImagePickerController()
+    fileprivate var tableViewData: UserViewModel = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,7 @@ class ProfileViewController: UIViewController {
         interactor?.getUserInfos()
     }
     
-    func setup() {
+    private func setup() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -49,7 +52,7 @@ class ProfileViewController: UIViewController {
         configViews()
     }
     
-    fileprivate func registerTableViewCells() {
+    private func registerTableViewCells() {
         self.tableView.register(UINib(nibName: "DescriptionItemCell", bundle: nil), forCellReuseIdentifier: "DescriptionItemCell")
     }
     
@@ -58,10 +61,6 @@ class ProfileViewController: UIViewController {
         self.changePhotoButton.layer.cornerRadius = 25
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 40)
         self.infoContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
-    }
-    
-    func setInfo(userInfo: UserInfo) {
-        self.userNameLabel.text = "\(userInfo.name) \(userInfo.surname)"
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -97,20 +96,23 @@ extension ProfileViewController: ProfileDisplayLogic {
         print("Show error")
     }
     
-    func displayUser(info: UserInfo) {
-        setInfo(userInfo: info)
+    func displayUser(info: UserViewModel) {
+        self.tableViewData = info
+        self.userNameLabel.text = info[4].description
+        self.tableView.reloadData()
     }
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.tableViewData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionItemCell", for: indexPath) as? DescriptionItemCell else {
             return UITableViewCell()
         }
+        cell.setContent(title: tableViewData[indexPath.row].title, description: tableViewData[indexPath.row].description)
         
         return cell
     }

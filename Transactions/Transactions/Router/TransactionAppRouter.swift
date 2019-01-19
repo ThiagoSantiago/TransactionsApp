@@ -11,7 +11,7 @@ import UIKit
 protocol TransactionsAppRoutingProtocol {
     static func popView()
     static func routeToUserProfile()
-    static func routeToDetails(transaction: Transaction)
+    static func routeToDetails(transaction: TransactionViewModel)
 }
 
 class TransactionAppRouter: TransactionsAppRoutingProtocol {
@@ -46,7 +46,7 @@ class TransactionAppRouter: TransactionsAppRoutingProtocol {
         }
     }
     
-    public static func routeToDetails(transaction: Transaction) {
+    public static func routeToDetails(transaction: TransactionViewModel) {
         let viewController = TransactionDetailsViewController()
         viewController.transaction = transaction
         

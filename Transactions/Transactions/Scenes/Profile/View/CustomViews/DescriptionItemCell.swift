@@ -23,6 +23,7 @@ class DescriptionItemCell: UITableViewCell {
     }
     
     func setContent(title: String, description: String) {
-        
+        self.titleLabel.text = title
+        self.descriptionLabel.text = description
     }
 }

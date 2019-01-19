@@ -18,7 +18,7 @@ class TransactionDetailsViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var effectiveLabel: UILabel!
     
-    var transaction: Transaction?
+    var transaction: TransactionViewModel?
     var latitude: Double?
     var longitude: Double?
     let regionRadius: CLLocationDistance = 800000
@@ -36,20 +36,16 @@ class TransactionDetailsViewController: UIViewController {
     }
     
     func setTransactionInfos() {
-        self.descriptionLabel.text = transaction?.description ?? ""
-        self.amountLabel.text = "Value: \(transaction?.amount ?? "")"
-        self.dateLabel.text = "Date: \(transaction?.date ?? "")"
+        self.descriptionLabel.text = transaction?.description
+        self.amountLabel.text = "Value: \(transaction?.amount)"
+        self.dateLabel.text = "Date: \(transaction?.date)"
         
         setTransactionLocation()
     }
     
     func setTransactionLocation() {
-        let coordinatesArray = transaction?.coordinates.split(separator: ",")
-        let stringLatitude = coordinatesArray?[0] ?? ""
-        let stringLongitude = coordinatesArray?[1] ?? ""
-        
-        self.latitude = Double(stringLatitude)
-        self.longitude = Double(stringLongitude)
+        self.latitude = transaction?.latitude
+        self.longitude = transaction?.longitude
         
         setLocationOnTheMap()
     }

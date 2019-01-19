@@ -9,6 +9,11 @@
 import Foundation
 import Alamofire
 
+//enum NetworkResult<Value> {
+//    case success(,Value)
+//    case failure(Error)
+//}
+
 enum TransactionsAPI {
     case getUserInfos()
     case getTransactionsList()
@@ -67,16 +72,17 @@ extension TransactionsAPI {
 
 extension TransactionsAPI {
     
-    static func request<T: Decodable>(_ endpoint: TransactionsAPI, completion: @escaping (_ result: Result<T>) -> Void) {
+    static func request<T: Decodable>(_ endpoint: TransactionsAPI, completion: @escaping (_ result: Result<T>, _ httpResponse: DataResponse<Any>) -> Void) {
         
         Alamofire.request("\(endpoint.baseUrl)\(endpoint.path)", method: endpoint.method, parameters: endpoint.parameters, encoding: endpoint.encoding, headers: endpoint.headers).responseJSON { (httpResponse: DataResponse<Any>) in
             
             guard let response = httpResponse.response else {
-                completion(Result.failure(TransactionsAPIError.unknownResponse))
+                completion(Result.failure(TransactionsAPIError.unknownResponse), httpResponse)
                 return
             }
             
-            completion(self.handler(statusCode: response.statusCode, dataResponse: httpResponse))
+            completion(self.handler(statusCode: response.statusCode, dataResponse: httpResponse), httpResponse)
+
         }
     }
     

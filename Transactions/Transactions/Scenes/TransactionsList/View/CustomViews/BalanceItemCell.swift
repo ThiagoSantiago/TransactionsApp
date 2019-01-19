@@ -10,20 +10,32 @@ import UIKit
 
 class BalanceItemCell: UITableViewCell {
     
-    @IBOutlet weak var transactionNameLabel: UILabel!
-    @IBOutlet weak var transactionValueLabel: UILabel!
-    @IBOutlet weak var transactionDateLabel: UILabel!
-    @IBOutlet weak var labelsContentView: UIView!
-    @IBOutlet weak var tansactionIndicatorView: UIImageView!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var valueLabel: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
+    @IBOutlet weak private var labelsContentView: UIView!
+    @IBOutlet weak private var transactionIndicatorView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.labelsContentView.layer.cornerRadius = 4
-        self.tansactionIndicatorView.layer.cornerRadius = 5
+        self.transactionIndicatorView.layer.cornerRadius = 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         super.setSelected(false, animated: true)
+    }
+    
+    func setContent(transaction: TransactionViewModel) {
+        self.descriptionLabel.text = transaction.description
+        self.valueLabel.text = transaction.amount
+        self.dateLabel.text = transaction.date
+        
+        if transaction.amount.contains("-") {
+            self.transactionIndicatorView.backgroundColor = Colors.debitColor
+        } else {
+            self.transactionIndicatorView.backgroundColor = Colors.creditColor
+        }
     }
 }

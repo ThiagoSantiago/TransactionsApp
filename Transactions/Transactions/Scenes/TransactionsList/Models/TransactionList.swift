@@ -10,6 +10,7 @@ import Foundation
 
 struct TransactionList: Decodable {
     var transactions: [Transaction]
+    var nextPage: String = ""
     
     init(from decoder: Decoder) throws {
         let values = try decoder.singleValueContainer()
