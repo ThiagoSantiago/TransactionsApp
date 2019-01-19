@@ -16,7 +16,7 @@ import Alamofire
 
 enum TransactionsAPI {
     case getUserInfos()
-    case getTransactionsList()
+    case getTransactionsList(page: String)
 }
 
 extension TransactionsAPI {
@@ -30,8 +30,8 @@ extension TransactionsAPI {
             
         case .getUserInfos():
             return "userinfo"
-        case .getTransactionsList():
-            return "transactions"
+        case .getTransactionsList(let page):
+            return "\(page)"
         }
     }
     

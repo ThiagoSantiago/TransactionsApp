@@ -31,13 +31,14 @@ class TransactionListPresenter: TransactionListPresentationLogic {
             let latitude = Double(transaction.coordinates.extractCoordinates()[0]) ?? 0.0
             let longitude = Double(transaction.coordinates.extractCoordinates()[1]) ?? 0.0
             let effectiveDateFormatted = transaction.effectiveDate.formatDateString()
+            let transactionType: TransactionType = transaction.amount.contains("-") ? .debit : .credit
             
             let viewModel = TransactionViewModel(date: dateFormatted,
                                                  amount: amoutFormatted,
                                                  description: transaction.description,
                                                  latitude: latitude,
                                                  longitude: longitude,
-                                                 effectiveDate: effectiveDateFormatted)
+                                                 effectiveDate: effectiveDateFormatted, transactionType: transactionType)
             
             transactions.append(viewModel)
             

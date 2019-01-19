@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum TransactionType {
+    case credit
+    case debit
+}
+
 struct TransactionViewModel {
     var date: String
     var amount: String
@@ -15,4 +20,5 @@ struct TransactionViewModel {
     var latitude: Double
     var longitude: Double
     var effectiveDate: String
+    var transactionType: TransactionType
 }

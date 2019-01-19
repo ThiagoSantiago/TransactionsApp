@@ -9,15 +9,15 @@
 import Foundation
 
 protocol TransactionListBusinessLogic {
-    func getTransactionsList()
+    func getTransactionsList(page: String)
 }
 
 class TransactionListInteractor: TransactionListBusinessLogic {
     var presenter: TransactionListPresentationLogic?
     var worker = TransactionsWorker()
     
-    func getTransactionsList() {
-        worker.getTransactions(success: { transactionList in
+    func getTransactionsList(page: String = "transactions") {
+        worker.getTransactions(page: page, success: { transactionList in
             self.presenter?.presentList(transactionList)
         }) { error in
             self.presenter?.presentError(error)

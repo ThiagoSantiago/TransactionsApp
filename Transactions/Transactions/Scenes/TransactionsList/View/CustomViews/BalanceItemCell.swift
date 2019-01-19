@@ -32,7 +32,7 @@ class BalanceItemCell: UITableViewCell {
         self.valueLabel.text = transaction.amount
         self.dateLabel.text = transaction.date
         
-        if transaction.amount.contains("-") {
+        if transaction.transactionType == .debit {
             self.transactionIndicatorView.backgroundColor = Colors.debitColor
         } else {
             self.transactionIndicatorView.backgroundColor = Colors.creditColor

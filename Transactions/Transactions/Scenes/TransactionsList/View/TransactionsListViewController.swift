@@ -17,9 +17,10 @@ class TransactionsListViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalBalanceLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
-    
+    @IBOutlet weak var totalBalanceLabel: UILabel!
+    @IBOutlet weak var balancePeriodLabel: UILabel!
+
     var nextpage = ""
     var transactionData: [TransactionViewModel] = []
     var interactor: TransactionListInteractor?
@@ -45,6 +46,13 @@ class TransactionsListViewController: UIViewController {
         interactor.presenter = presenter
     }
     
+    func verifyIfHasNextPage() {
+        let hasNext = !self.nextpage.isEmpty
+        if hasNext {
+            self.interactor?.getTransactionsList(page: self.nextpage)
+        }
+    }
+    
     fileprivate func configView() {
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 30)
 //        self.headerView.setGradient(startColor: Colors.lightPink.cgColor, finalColor: Colors.darkPink.cgColor)
@@ -64,6 +72,14 @@ extension TransactionsListViewController: TransactionsListDisplayLogic {
         self.nextpage = list.nextPage
         self.transactionData = list.transactions
         self.totalBalanceLabel.text = list.totalBalance
+        
+        if let firstDate = list.transactions.first?.date,
+           let lastDate = list.transactions.last?.date {
+            self.balancePeriodLabel.text = "Balance of the period:\n \(firstDate) - \(lastDate)"
+        } else {
+            self.balancePeriodLabel.text = "Balance of the period"
+        }
+        
         self.tableView.reloadData()
     }
 }
@@ -77,7 +93,6 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceItemCell", for: indexPath) as? BalanceItemCell else { return UITableViewCell()}
         
         let transaction = transactionData[indexPath.row]
-        
         cell.setContent(transaction: transaction)
         
         return cell
@@ -85,6 +100,12 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         TransactionAppRouter.routeToDetails(transaction: transactionData[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.transactionData.count - 1 {
+            self.verifyIfHasNextPage()
+        }
     }
 }
 

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionsListViewController" customModule="Transactions" customModuleProvider="target">
             <connections>
+                <outlet property="balancePeriodLabel" destination="V6u-VV-cn7" id="MJQ-DH-GTh"/>
                 <outlet property="headerView" destination="QuD-RP-xQa" id="4El-Bu-qGc"/>
                 <outlet property="tableView" destination="f08-Za-SYT" id="iXv-Tu-gTS"/>
                 <outlet property="totalBalanceLabel" destination="JJP-fN-EXt" id="vqM-aX-iW1"/>
@@ -28,13 +29,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJP-fN-EXt">
-                            <rect key="frame" x="144.5" y="140" width="86" height="34"/>
+                            <rect key="frame" x="144.5" y="168" width="86" height="34"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance of the period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6u-VV-cn7">
-                            <rect key="frame" x="114.5" y="182" width="146.5" height="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6u-VV-cn7">
+                            <rect key="frame" x="110.5" y="210" width="154" height="0.0"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="154" id="A7a-jL-aea"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -67,7 +71,7 @@
                         <constraint firstAttribute="height" constant="250" id="8t7-9R-wWn"/>
                         <constraint firstItem="JJP-fN-EXt" firstAttribute="centerX" secondItem="QuD-RP-xQa" secondAttribute="centerX" id="MMx-tF-8GE"/>
                         <constraint firstItem="d0L-gK-TfI" firstAttribute="bottom" secondItem="Iqr-WE-5dk" secondAttribute="bottom" id="Qn2-do-L27"/>
-                        <constraint firstAttribute="bottom" secondItem="V6u-VV-cn7" secondAttribute="bottom" constant="50" id="UNn-Ug-BkQ"/>
+                        <constraint firstAttribute="bottom" secondItem="V6u-VV-cn7" secondAttribute="bottom" constant="40" id="UNn-Ug-BkQ"/>
                         <constraint firstItem="d0L-gK-TfI" firstAttribute="leading" secondItem="Iqr-WE-5dk" secondAttribute="leading" id="X0z-2x-Fen"/>
                         <constraint firstItem="d0L-gK-TfI" firstAttribute="top" secondItem="Iqr-WE-5dk" secondAttribute="top" id="XV7-Vm-kaI"/>
                         <constraint firstItem="V6u-VV-cn7" firstAttribute="centerX" secondItem="QuD-RP-xQa" secondAttribute="centerX" id="c2F-z3-4SL"/>

@@ -13,13 +13,17 @@ class TransactionsWorker {
     typealias Failure = (_ error: TransactionsAPIError) -> Void
     
     typealias GetTransactionsSuccess = (_ transactions: TransactionList) -> Void
-    func getTransactions(success: @escaping GetTransactionsSuccess, failure: @escaping Failure) {
-        TransactionsAPI.request( .getTransactionsList()) { (result: Result<TransactionList>, httpResponse)  in
+    func getTransactions(page: String, success: @escaping GetTransactionsSuccess, failure: @escaping Failure) {
+        TransactionsAPI.request( .getTransactionsList(page: page)) { (result: Result<TransactionList>, httpResponse)  in
             switch result {
             case .success(let transactions):
                 var transactionList = transactions
                 if let nextPage = httpResponse.response?.allHeaderFields["next-page"] as? String {
-                    transactionList.nextPage = nextPage
+                    let substringArray = nextPage.split(separator: "/")
+                    
+                    if let lastString = substringArray.last {
+                        transactionList.nextPage = "\(lastString)"
+                    }
                 }
                 
                 success(transactionList)
