@@ -17,10 +17,13 @@ class TransactionListInteractor: TransactionListBusinessLogic {
     var worker = TransactionsWorker()
     
     func getTransactionsList(page: String = "transactions") {
+        presenter?.presentLoadingView()
         worker.getTransactions(page: page, success: { transactionList in
             self.presenter?.presentList(transactionList)
+            self.presenter?.closeLoadingView()
         }) { error in
             self.presenter?.presentError(error)
+            self.presenter?.closeLoadingView()
         }
     }
 }

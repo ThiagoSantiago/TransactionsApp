@@ -9,13 +9,18 @@
 import UIKit
 
 protocol TransactionsListDisplayLogic: class {
+    func hideLoadingView()
+    func displayLoadingView()
     func displayError(message: String)
     func displayTransactions(list: TransactionsListViewModel)
 }
 
 class TransactionsListViewController: UIViewController {
     
+    @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var totalBalanceLabel: UILabel!
@@ -53,9 +58,9 @@ class TransactionsListViewController: UIViewController {
         }
     }
     
-    fileprivate func configView() {
+    private func configView() {
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 30)
-//        self.headerView.setGradient(startColor: Colors.lightPink.cgColor, finalColor: Colors.darkPink.cgColor)
+        self.headerView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
     }
     
     fileprivate func registerTableViewCells() {
@@ -64,13 +69,23 @@ class TransactionsListViewController: UIViewController {
 }
 
 extension TransactionsListViewController: TransactionsListDisplayLogic {
+    func hideLoadingView() {
+        self.loadingView.isHidden = true
+    }
+    
+    func displayLoadingView() {
+        self.loadingView.isHidden = false
+    }
+    
     func displayError(message: String) {
-        print("Error message: \(message)")
+        self.errorView.isHidden = false
+        self.errorMessage.text = message
     }
     
     func displayTransactions(list: TransactionsListViewModel) {
+        self.errorView.isHidden = true
         self.nextpage = list.nextPage
-        self.transactionData = list.transactions
+        self.transactionData.append(contentsOf: list.transactions)
         self.totalBalanceLabel.text = list.totalBalance
         
         if let firstDate = list.transactions.first?.date,

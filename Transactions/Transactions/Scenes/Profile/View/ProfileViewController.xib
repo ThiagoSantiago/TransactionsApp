@@ -13,7 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Transactions" customModuleProvider="target">
             <connections>
                 <outlet property="changePhotoButton" destination="iw4-0l-T5V" id="J92-Ka-NUO"/>
+                <outlet property="errorMessageLabel" destination="nQO-ih-VpQ" id="SI0-Aj-6v8"/>
+                <outlet property="errorView" destination="cVH-NY-j9H" id="JQ0-sA-kSd"/>
+                <outlet property="headerContentView" destination="adX-6h-I0j" id="7x1-gK-pny"/>
                 <outlet property="infoContentView" destination="eCh-0P-dVh" id="lJT-8W-ETJ"/>
+                <outlet property="loadingView" destination="udo-DE-dd9" id="zHs-dO-Lu8"/>
                 <outlet property="tableView" destination="njQ-h9-ue2" id="ggi-on-dcF"/>
                 <outlet property="userImageView" destination="r7N-z7-Fk1" id="lvX-Ef-PqR"/>
                 <outlet property="userNameLabel" destination="B1h-i9-tph" id="PKx-ST-elU"/>
@@ -70,7 +74,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw4-0l-T5V">
                             <rect key="frame" x="32" y="357" width="311" height="50"/>
-                            <color key="backgroundColor" red="0.86666666670000003" green="0.31372549020000001" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.14117647058823529" green="0.1764705882352941" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Lj3-2M-II6"/>
                             </constraints>
@@ -98,22 +102,81 @@
                         <constraint firstItem="njQ-h9-ue2" firstAttribute="leading" secondItem="eCh-0P-dVh" secondAttribute="leading" id="nMP-Bc-fuk"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVH-NY-j9H">
+                    <rect key="frame" x="0.0" y="250" width="375" height="417"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_error" translatesAutoresizingMaskIntoConstraints="NO" id="eIG-FT-idC">
+                            <rect key="frame" x="147.5" y="88" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="Jg1-TT-hXy"/>
+                                <constraint firstAttribute="height" constant="80" id="iWU-uv-aJ7"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQO-ih-VpQ">
+                            <rect key="frame" x="32" y="198" width="311" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="nQO-ih-VpQ" firstAttribute="centerY" secondItem="cVH-NY-j9H" secondAttribute="centerY" id="N5R-zE-W0n"/>
+                        <constraint firstItem="nQO-ih-VpQ" firstAttribute="top" secondItem="eIG-FT-idC" secondAttribute="bottom" constant="30" id="Y3p-c3-Rmw"/>
+                        <constraint firstItem="nQO-ih-VpQ" firstAttribute="centerX" secondItem="cVH-NY-j9H" secondAttribute="centerX" id="g1m-mm-D8H"/>
+                        <constraint firstItem="eIG-FT-idC" firstAttribute="centerX" secondItem="cVH-NY-j9H" secondAttribute="centerX" id="kQ0-xY-qCa"/>
+                        <constraint firstAttribute="trailing" secondItem="nQO-ih-VpQ" secondAttribute="trailing" constant="32" id="uxL-Np-X0p"/>
+                        <constraint firstItem="nQO-ih-VpQ" firstAttribute="leading" secondItem="cVH-NY-j9H" secondAttribute="leading" constant="32" id="ywo-Ex-w5w"/>
+                    </constraints>
+                </view>
+                <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udo-DE-dd9" userLabel="Loading View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jgV-AB-b2M">
+                            <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJQ-qm-BRM">
+                            <rect key="frame" x="16" y="362" width="343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="MJQ-qm-BRM" firstAttribute="top" secondItem="jgV-AB-b2M" secondAttribute="bottom" constant="10" id="AOC-L8-ytY"/>
+                        <constraint firstAttribute="trailing" secondItem="MJQ-qm-BRM" secondAttribute="trailing" constant="16" id="GnP-AH-ZSD"/>
+                        <constraint firstItem="jgV-AB-b2M" firstAttribute="centerX" secondItem="udo-DE-dd9" secondAttribute="centerX" id="RGa-y6-Qf4"/>
+                        <constraint firstItem="jgV-AB-b2M" firstAttribute="centerY" secondItem="udo-DE-dd9" secondAttribute="centerY" id="kb3-uW-fb7"/>
+                        <constraint firstItem="MJQ-qm-BRM" firstAttribute="leading" secondItem="udo-DE-dd9" secondAttribute="leading" constant="16" id="xG3-1r-KVS"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="udo-DE-dd9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5lu-A0-KyV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cVH-NY-j9H" secondAttribute="trailing" id="8Xj-Su-7fy"/>
+                <constraint firstAttribute="bottom" secondItem="cVH-NY-j9H" secondAttribute="bottom" id="GXO-0o-bjc"/>
                 <constraint firstItem="adX-6h-I0j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="J01-4o-LaZ"/>
+                <constraint firstItem="udo-DE-dd9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LXB-x4-7ol"/>
                 <constraint firstAttribute="bottom" secondItem="eCh-0P-dVh" secondAttribute="bottom" id="RB6-w5-wGg"/>
+                <constraint firstItem="cVH-NY-j9H" firstAttribute="top" secondItem="adX-6h-I0j" secondAttribute="bottom" id="RM0-gN-W6U"/>
                 <constraint firstItem="eCh-0P-dVh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SSk-bv-7pp"/>
                 <constraint firstItem="adX-6h-I0j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SX3-1a-VW2"/>
                 <constraint firstItem="eCh-0P-dVh" firstAttribute="top" secondItem="adX-6h-I0j" secondAttribute="bottom" constant="-20" id="XRP-9E-cVj"/>
+                <constraint firstItem="cVH-NY-j9H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="a9z-eZ-iHw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="udo-DE-dd9" secondAttribute="trailing" id="gqz-Ed-OwQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eCh-0P-dVh" secondAttribute="trailing" id="m67-Ek-3lY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="adX-6h-I0j" secondAttribute="trailing" id="oCe-4F-FnD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="udo-DE-dd9" secondAttribute="bottom" id="wec-6J-8so"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_error" width="980" height="814"/>
         <image name="user_placeholder" width="600" height="600"/>
     </resources>
 </document>

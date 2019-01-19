@@ -25,10 +25,13 @@ extension UIView {
     
     func setGradient(startColor: CGColor, finalColor: CGColor) {
         let backgroundLayer = CAGradientLayer()
+        backgroundLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.bounds.height)
         let gradientColors: [AnyObject] = [startColor, finalColor]
         backgroundLayer.colors = gradientColors
-        backgroundLayer.locations = [0.0 ,1.0]
+        backgroundLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        backgroundLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         self.backgroundColor = UIColor.clear
-        self.layer.addSublayer(backgroundLayer)
+        self.layer.insertSublayer(backgroundLayer, below: self.subviews.first?.layer)
     }
 }
+

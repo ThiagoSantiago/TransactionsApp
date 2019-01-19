@@ -10,6 +10,7 @@ import Foundation
 
 class Constants {
     static let baseUrl = "http://demo5481020.mockable.io/"
-    static let lostConnectionMessage = "Ops, parece que você está sem conexão com a internet."
-    static let defaultServerFailureError = "Oops, parece que tem algo de errado com nossos servidores no momento. \u{1F61E}"
+    
+    // MARK: - Error Messages
+    static let defaultServerFailureError = "Oops! Looks like something get wrong, I'm really sorry. Could you try again?"
 }

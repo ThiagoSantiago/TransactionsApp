@@ -9,11 +9,6 @@
 import Foundation
 import Alamofire
 
-//enum NetworkResult<Value> {
-//    case success(,Value)
-//    case failure(Error)
-//}
-
 enum TransactionsAPI {
     case getUserInfos()
     case getTransactionsList(page: String)
@@ -94,9 +89,9 @@ extension TransactionsAPI {
         case 400:
             return Result.failure(TransactionsAPIError.badRequest)
         case 401:
-            return Result.failure(TransactionsAPIError.unauthorized(""))
+            return Result.failure(TransactionsAPIError.unauthorized)
         case 404:
-            return Result.failure(TransactionsAPIError.notFound(""))
+            return Result.failure(TransactionsAPIError.notFound)
         default:
             return Result.failure(TransactionsAPIError.unknownResponse)
         }
@@ -114,18 +109,5 @@ extension TransactionsAPI {
         } else {
             return Result.failure(TransactionsAPIError.invalidJson)
         }
-    }
-    
-    private static func parseErrorMessage(_ responseJson: [String: Any]?) -> GenericResponse {
-        let genericResponse = GenericResponse()
-        
-        guard let response = responseJson else {
-            return genericResponse
-        }
-        
-        genericResponse.message = response["status_message"] as? String ?? ""
-        genericResponse.errorCode = response["status_code"] as? String ?? ""
-        
-        return genericResponse
     }
 }

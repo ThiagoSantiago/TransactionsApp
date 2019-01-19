@@ -10,8 +10,8 @@ import Foundation
 
 enum TransactionsAPIError: Error {
     case badRequest
-    case notFound(String?)
-    case unauthorized(String?)
+    case notFound
+    case unauthorized
     case unknownResponse
     case invalidJson
     case noInternet
@@ -19,18 +19,7 @@ enum TransactionsAPIError: Error {
     
     var errorMessage: String {
         switch self {
-        case .noInternet:
-            return Constants.lostConnectionMessage
-        case .notFound(let genericResponse):
-            guard let status = genericResponse else {
-                return Constants.defaultServerFailureError
-            }
-            return status
-        case .unauthorized(let genericResponse):
-            guard let status = genericResponse else {
-                return Constants.defaultServerFailureError
-            }
-            return status
+
         default:
             return Constants.defaultServerFailureError
         }

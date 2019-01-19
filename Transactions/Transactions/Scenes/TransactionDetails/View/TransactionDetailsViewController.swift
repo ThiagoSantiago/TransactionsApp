@@ -12,6 +12,7 @@ import MapKit
 class TransactionDetailsViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var headerContentView: UIView!
     @IBOutlet weak var infosContentView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
@@ -32,13 +33,14 @@ class TransactionDetailsViewController: UIViewController {
     
     func configViews() {
         self.infosContentView.layer.cornerRadius = 8
+        self.headerContentView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
         self.infosContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
     }
     
     func setTransactionInfos() {
         self.descriptionLabel.text = transaction?.description
-        self.amountLabel.text = "Value: \(transaction?.amount)"
-        self.dateLabel.text = "Date: \(transaction?.date)"
+        self.amountLabel.text = "Value: \(transaction?.amount ?? "")"
+        self.dateLabel.text = "Date: \(transaction?.date ?? "")"
         
         setTransactionLocation()
     }

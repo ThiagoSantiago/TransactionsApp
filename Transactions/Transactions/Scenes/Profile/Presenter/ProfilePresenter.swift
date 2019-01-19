@@ -9,8 +9,8 @@
 import Foundation
 
 protocol ProfilePresentationLogic {
-    
-    
+    func closeLoadingView()
+    func presenterLoadignView()
     func presentUserInfo(_ userInfo: UserInfo)
     func presentError(_ error: TransactionsAPIError)
 }
@@ -18,6 +18,14 @@ protocol ProfilePresentationLogic {
 class ProfilePresenter: ProfilePresentationLogic {
     weak var viewController: ProfileDisplayLogic?
     typealias UserViewModel = [(title: String, description: String)]
+    
+    func closeLoadingView() {
+        viewController?.hideLoading()
+    }
+    
+    func presenterLoadignView() {
+        viewController?.displayLoadingView()
+    }
     
     func presentUserInfo(_ userInfo: UserInfo) {
         var viewModel = UserViewModel()

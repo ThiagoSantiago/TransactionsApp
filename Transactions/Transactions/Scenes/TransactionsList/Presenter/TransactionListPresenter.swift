@@ -9,20 +9,30 @@
 import Foundation
 
 protocol TransactionListPresentationLogic {
+    func closeLoadingView()
+    func presentLoadingView()
     func presentList(_ transactions: TransactionList)
     func presentError(_ error: TransactionsAPIError)
 }
 
 class TransactionListPresenter: TransactionListPresentationLogic {
     weak var viewController: TransactionsListDisplayLogic?
+    var totalBalance = 0.0
+    
+    func closeLoadingView() {
+        viewController?.hideLoadingView()
+    }
+    
+    func presentLoadingView() {
+        viewController?.displayLoadingView()
+    }
     
     func presentList(_ transactions: TransactionList) {
-        
         viewController?.displayTransactions(list: treatTransactionData(transactions))
     }
     
     private func treatTransactionData(_ data: TransactionList) -> TransactionsListViewModel {
-        var totalBalance = 0.0
+        var balance = 0.0
         var transactions: [TransactionViewModel] = []
         
         for transaction in data.transactions {
@@ -43,13 +53,13 @@ class TransactionListPresenter: TransactionListPresentationLogic {
             transactions.append(viewModel)
             
             let amount = Double(transaction.amount.replacingOccurrences(of: ",", with: ".")) ?? 0.0
-            totalBalance += amount
-            
+            balance += amount
         }
         
+        self.totalBalance += balance
         return TransactionsListViewModel(transactions: transactions,
                                          nextPage: data.nextPage,
-                                         totalBalance: totalBalance.formattedToCurrency)
+                                         totalBalance: self.totalBalance.formattedToCurrency)
     }
     
     func presentError(_ error: TransactionsAPIError) {

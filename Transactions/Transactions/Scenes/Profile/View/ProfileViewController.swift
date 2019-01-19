@@ -11,12 +11,18 @@ import UIKit
 protocol ProfileDisplayLogic: class {
     typealias UserViewModel = [(title: String, description: String)]
     
+    func hideLoading()
+    func displayLoadingView()
     func displayError(message: String)
     func displayUser(info: UserViewModel)
 }
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak private var errorMessageLabel: UILabel!
+    @IBOutlet weak private var errorView: UIView!
+    @IBOutlet weak private var loadingView: UIView!
+    @IBOutlet weak private var headerContentView: UIView!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var userImageView: UIImageView!
     @IBOutlet weak private var infoContentView: UIView!
@@ -61,6 +67,7 @@ class ProfileViewController: UIViewController {
         self.changePhotoButton.layer.cornerRadius = 25
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 40)
         self.infoContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
+        self.headerContentView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -92,11 +99,21 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: ProfileDisplayLogic {
+    func hideLoading() {
+        self.loadingView.isHidden = true
+    }
+    
+    func displayLoadingView() {
+        self.loadingView.isHidden = false
+    }
+        
     func displayError(message: String) {
-        print("Show error")
+        self.errorView.isHidden = false
+        self.errorMessageLabel.text = message
     }
     
     func displayUser(info: UserViewModel) {
+        self.errorView.isHidden = true
         self.tableViewData = info
         self.userNameLabel.text = info[4].description
         self.tableView.reloadData()
