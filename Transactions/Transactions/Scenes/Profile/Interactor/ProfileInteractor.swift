@@ -6,7 +6,7 @@
 //  Copyright © 2019 Thiago Santiago. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ProfileBusinessLogic {
     func getUserInfos()
@@ -25,5 +25,22 @@ class ProfileInteractor: ProfileBusinessLogic {
             self.presenter?.closeLoadingView()
             self.presenter?.presentError(error)
         }
+    }
+    
+    func loadUserImage() {
+        worker.loadImage(success: { image in
+            self.presenter?.presentUser(image)
+        }) { _ in }
+    }
+    
+    @discardableResult
+    func saveUser(image: UIImage) -> Bool {
+        var wasSaved = false
+        worker.saveUser(image: image, success: { _ in
+            wasSaved = true
+        }) { _ in
+            wasSaved = false
+        }
+        return wasSaved
     }
 }

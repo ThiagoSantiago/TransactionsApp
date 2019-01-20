@@ -11,6 +11,7 @@ import UIKit
 protocol TransactionsListDisplayLogic: class {
     func hideLoadingView()
     func displayLoadingView()
+    func displayUser(image: UIImage)
     func displayError(message: String)
     func displayTransactions(list: TransactionsListViewModel)
 }
@@ -36,6 +37,12 @@ class TransactionsListViewController: UIViewController {
         setup()
         configView()
         self.interactor?.getTransactionsList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.interactor?.loadUserImage()
     }
     
     fileprivate func setup() {
@@ -69,12 +76,17 @@ class TransactionsListViewController: UIViewController {
 }
 
 extension TransactionsListViewController: TransactionsListDisplayLogic {
+    
     func hideLoadingView() {
         self.loadingView.isHidden = true
     }
     
     func displayLoadingView() {
         self.loadingView.isHidden = false
+    }
+    
+    func displayUser(image: UIImage) {
+        self.userImageView.image = image
     }
     
     func displayError(message: String) {

@@ -26,4 +26,10 @@ class TransactionListInteractor: TransactionListBusinessLogic {
             self.presenter?.closeLoadingView()
         }
     }
+    
+    func loadUserImage() {
+        worker.loadImage(success: { image in
+            self.presenter?.presentUser(image)
+        }) { _ in }
+    }
 }

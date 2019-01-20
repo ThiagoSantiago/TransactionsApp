@@ -13,6 +13,7 @@ protocol ProfileDisplayLogic: class {
     
     func hideLoading()
     func displayLoadingView()
+    func displayUser(image: UIImage)
     func displayError(message: String)
     func displayUser(info: UserViewModel)
 }
@@ -38,6 +39,7 @@ class ProfileViewController: UIViewController {
 
         setup()
         interactor?.getUserInfos()
+        interactor?.loadUserImage()
     }
     
     private func setup() {
@@ -62,7 +64,7 @@ class ProfileViewController: UIViewController {
         self.tableView.register(UINib(nibName: "DescriptionItemCell", bundle: nil), forCellReuseIdentifier: "DescriptionItemCell")
     }
     
-    func configViews() {
+    private func configViews() {
         self.infoContentView.layer.cornerRadius = 8
         self.changePhotoButton.layer.cornerRadius = 25
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 40)
@@ -95,16 +97,20 @@ class ProfileViewController: UIViewController {
         
         self.present(optionMenu, animated: true, completion: nil)
     }
-    
 }
 
 extension ProfileViewController: ProfileDisplayLogic {
+    
     func hideLoading() {
         self.loadingView.isHidden = true
     }
     
     func displayLoadingView() {
         self.loadingView.isHidden = false
+    }
+    
+    func displayUser(image: UIImage) {
+        self.userImageView.image = image
     }
         
     func displayError(message: String) {
@@ -140,8 +146,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         
-        imagePicker.dismiss(animated: true, completion: nil)
-        
         self.userImageView.image = selectedImage
+        self.interactor?.saveUser(image: selectedImage)
+        
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 }

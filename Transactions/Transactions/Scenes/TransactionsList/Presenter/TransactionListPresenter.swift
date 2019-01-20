@@ -6,16 +6,18 @@
 //  Copyright © 2019 Thiago Santiago. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TransactionListPresentationLogic {
     func closeLoadingView()
     func presentLoadingView()
+    func presentUser(_ image: UIImage)
     func presentList(_ transactions: TransactionList)
     func presentError(_ error: TransactionsAPIError)
 }
 
 class TransactionListPresenter: TransactionListPresentationLogic {
+
     weak var viewController: TransactionsListDisplayLogic?
     var totalBalance = 0.0
     
@@ -25,6 +27,9 @@ class TransactionListPresenter: TransactionListPresentationLogic {
     
     func presentLoadingView() {
         viewController?.displayLoadingView()
+    }
+    func presentUser(_ image: UIImage) {
+        viewController?.displayUser(image: image)
     }
     
     func presentList(_ transactions: TransactionList) {
@@ -38,8 +43,8 @@ class TransactionListPresenter: TransactionListPresentationLogic {
         for transaction in data.transactions {
             let dateFormatted = transaction.date.formatDateString()
             let amoutFormatted = transaction.amount.formatCurrency()
-            let latitude = Double(transaction.coordinates.extractCoordinates()[0]) ?? 0.0
-            let longitude = Double(transaction.coordinates.extractCoordinates()[1]) ?? 0.0
+            let latitude = Double(transaction.coordinates.extractCoordinates()[1]) ?? 0.0
+            let longitude = Double(transaction.coordinates.extractCoordinates()[0]) ?? 0.0
             let effectiveDateFormatted = transaction.effectiveDate.formatDateString()
             let transactionType: TransactionType = transaction.amount.contains("-") ? .debit : .credit
             

@@ -6,16 +6,18 @@
 //  Copyright © 2019 Thiago Santiago. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ProfilePresentationLogic {
     func closeLoadingView()
     func presenterLoadignView()
+    func presentUser(_ image: UIImage)
     func presentUserInfo(_ userInfo: UserInfo)
     func presentError(_ error: TransactionsAPIError)
 }
 
 class ProfilePresenter: ProfilePresentationLogic {
+    
     weak var viewController: ProfileDisplayLogic?
     typealias UserViewModel = [(title: String, description: String)]
     
@@ -25,6 +27,10 @@ class ProfilePresenter: ProfilePresentationLogic {
     
     func presenterLoadignView() {
         viewController?.displayLoadingView()
+    }
+    
+    func presentUser(_ image: UIImage) {
+        viewController?.displayUser(image: image)
     }
     
     func presentUserInfo(_ userInfo: UserInfo) {

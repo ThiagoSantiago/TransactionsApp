@@ -54,4 +54,30 @@ class TransactionsWorker {
             }
         }
     }
+ 
+    typealias GetUserImageSuccess = (_ userImage: UIImage) -> Void
+    func loadImage(success: @escaping GetUserImageSuccess, failure: @escaping Failure) {
+        if let imageString = UserDefaults.standard.string(forKey: Constants.userImageKey),
+            let imageData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters) {
+            
+            guard let imageDecoded = UIImage(data: imageData) else {
+                failure(TransactionsAPIError.unknownResponse)
+                return
+            }
+            
+            success(imageDecoded)
+        } else {
+            failure(TransactionsAPIError.unknownResponse)
+        }
+    }
+    
+    typealias UserImageSavedSuccess = (_ saved: Bool) -> Void
+    func saveUser(image: UIImage, success: @escaping UserImageSavedSuccess, failure: @escaping Failure) {
+        if let base64Image = image.pngData()?.base64EncodedString(options: .lineLength64Characters) {
+            UserDefaults.standard.set(base64Image, forKey: Constants.userImageKey)
+            success(true)
+        } else {
+            failure(TransactionsAPIError.unknownResponse)
+        }
+    }
 }
