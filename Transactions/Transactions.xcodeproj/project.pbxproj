@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181F721021F3F706002DB322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181F720F21F3F706002DB322 /* Assets.xcassets */; };
 		18AD92CD21EF61BD00C0D0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92CC21EF61BD00C0D0C4 /* AppDelegate.swift */; };
-		18AD92D421EF61BE00C0D0C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AD92D321EF61BE00C0D0C4 /* Assets.xcassets */; };
 		18AD92D721EF61BE00C0D0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AD92D521EF61BE00C0D0C4 /* LaunchScreen.storyboard */; };
 		18AD92E221EF61BE00C0D0C4 /* TransactionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92E121EF61BE00C0D0C4 /* TransactionsTests.swift */; };
 		18AD92F421EF65F300C0D0C4 /* TransactionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92F221EF65F300C0D0C4 /* TransactionsListViewController.swift */; };
@@ -55,9 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181F720F21F3F706002DB322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AD92C921EF61BD00C0D0C4 /* Transactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD92CC21EF61BD00C0D0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18AD92D321EF61BE00C0D0C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AD92D621EF61BE00C0D0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18AD92D821EF61BE00C0D0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18AD92DD21EF61BE00C0D0C4 /* TransactionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransactionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,8 +148,8 @@
 				18AD92FB21F0081600C0D0C4 /* Router */,
 				18AD92ED21EF651A00C0D0C4 /* Scenes */,
 				18AD92FC21F0083000C0D0C4 /* Network */,
-				18AD92D321EF61BE00C0D0C4 /* Assets.xcassets */,
 				18AD92D521EF61BE00C0D0C4 /* LaunchScreen.storyboard */,
+				181F720F21F3F706002DB322 /* Assets.xcassets */,
 				18AD92D821EF61BE00C0D0C4 /* Info.plist */,
 			);
 			path = Transactions;
@@ -473,8 +473,8 @@
 				18DC135321F16CCC00A8436C /* ProfileViewController.xib in Resources */,
 				18AD92D721EF61BE00C0D0C4 /* LaunchScreen.storyboard in Resources */,
 				18AD92FA21EF864600C0D0C4 /* BalanceItemCell.xib in Resources */,
+				181F721021F3F706002DB322 /* Assets.xcassets in Resources */,
 				18AD92F521EF65F300C0D0C4 /* TransactionsListViewController.xib in Resources */,
-				18AD92D421EF61BE00C0D0C4 /* Assets.xcassets in Resources */,
 				18DC134B21F159EC00A8436C /* TransactionDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

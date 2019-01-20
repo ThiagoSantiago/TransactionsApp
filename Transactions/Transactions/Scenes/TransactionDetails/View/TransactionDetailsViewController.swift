@@ -15,20 +15,32 @@ class TransactionDetailsViewController: UIViewController {
     @IBOutlet weak var headerContentView: UIView!
     @IBOutlet weak var infosContentView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var effectiveLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableContentViewHeightConstraint: NSLayoutConstraint!
     
     var transaction: TransactionViewModel?
     var latitude: Double?
     var longitude: Double?
+    var tableViewData: [(title: String, description: String)] = []
     let regionRadius: CLLocationDistance = 800000
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+    }
+    
+    func setup() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         configViews()
         setTransactionInfos()
+        registerTableViewCells()
+    }
+    
+    private func registerTableViewCells() {
+        self.tableView.register(UINib(nibName: "DescriptionItemCell", bundle: nil), forCellReuseIdentifier: "DescriptionItemCell")
     }
     
     func configViews() {
@@ -39,10 +51,15 @@ class TransactionDetailsViewController: UIViewController {
     
     func setTransactionInfos() {
         self.descriptionLabel.text = transaction?.description
-        self.amountLabel.text = "Value: \(transaction?.amount ?? "")"
-        self.dateLabel.text = "Date: \(transaction?.date ?? "")"
+        
+        self.tableViewData.append((title: "Value:", description: transaction?.amount.formatCurrency() ?? ""))
+        self.tableViewData.append((title: "Date:", description: transaction?.date.formatDateString() ?? ""))
+        self.tableViewData.append((title: "Effective date:", description: transaction?.effectiveDate.formatDateString() ?? ""))
+        self.tableContentViewHeightConstraint.constant = CGFloat((self.tableViewData.count * 80) + 80)
         
         setTransactionLocation()
+        
+        self.tableView.reloadData()
     }
     
     func setTransactionLocation() {
@@ -60,7 +77,7 @@ class TransactionDetailsViewController: UIViewController {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+        self.mapView.setRegion(coordinateRegion, animated: true)
         addPinOnMap()
     }
     
@@ -69,7 +86,22 @@ class TransactionDetailsViewController: UIViewController {
         let pointCoord = CLLocationCoordinate2D(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
         annotation.coordinate = pointCoord
     
-        mapView.addAnnotation(annotation)
+        self.mapView.addAnnotation(annotation)
+    }
+}
+
+extension TransactionDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DescriptionItemCell", for: indexPath) as? DescriptionItemCell else {
+            return UITableViewCell()
+        }
+        cell.setContent(title: tableViewData[indexPath.row].title, description: tableViewData[indexPath.row].description)
+        
+        return cell
     }
 }
 
