@@ -34,15 +34,19 @@ class ProfilePresenter: ProfilePresentationLogic {
     }
     
     func presentUserInfo(_ userInfo: UserInfo) {
+        viewController?.displayUser(info: treatUserInfos(user: userInfo))
+    }
+    
+    func treatUserInfos(user: UserInfo) -> UserViewModel {
         var viewModel = UserViewModel()
         
-        viewModel.append((title: "Name", description: userInfo.name))
-        viewModel.append((title: "Surname", description: userInfo.surname))
-        viewModel.append((title: "Birthdate", description: userInfo.birthdate))
-        viewModel.append((title: "Nationality", description: userInfo.nationality))
-        viewModel.append((title: "Full name", description: "\(userInfo.name) \(userInfo.surname)"))
+        viewModel.append((title: "Name", description: user.name))
+        viewModel.append((title: "Surname", description: user.surname))
+        viewModel.append((title: "Birthdate", description: user.birthdate))
+        viewModel.append((title: "Nationality", description: user.nationality))
+        viewModel.append((title: "Full name", description: "\(user.name) \(user.surname)"))
         
-        viewController?.displayUser(info: viewModel)
+        return viewModel
     }
     
     func presentError(_ error: TransactionsAPIError) {

@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct TransactionList: Decodable {
+struct TransactionList {
     var transactions: [Transaction]
     var nextPage: String = ""
-    
+}
+
+extension TransactionList: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.singleValueContainer()
         self.transactions = try values.decode([Transaction].self)

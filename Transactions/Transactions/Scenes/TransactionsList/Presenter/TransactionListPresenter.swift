@@ -36,7 +36,7 @@ class TransactionListPresenter: TransactionListPresentationLogic {
         viewController?.displayTransactions(list: treatTransactionData(transactions))
     }
     
-    private func treatTransactionData(_ data: TransactionList) -> TransactionsListViewModel {
+    func treatTransactionData(_ data: TransactionList) -> TransactionsListViewModel {
         var balance = 0.0
         var transactions: [TransactionViewModel] = []
         

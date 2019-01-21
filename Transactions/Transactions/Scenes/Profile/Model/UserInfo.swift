@@ -33,3 +33,13 @@ extension UserInfo: Decodable {
         nationality = try values.decode(String.self, forKey: .nationality)
     }
 }
+
+extension UserInfo: Equatable {
+    
+    static func == (lhs: UserInfo, rhs: UserInfo) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.surname == rhs.surname &&
+            lhs.birthdate == rhs.birthdate &&
+            lhs.nationality == rhs.nationality
+    }
+}

@@ -37,3 +37,13 @@ extension Transaction: Decodable {
         effectiveDate = try values.decode(String.self, forKey: .effectiveDate)
     }
 }
+
+extension Transaction: Equatable {
+    
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.date == rhs.date &&
+            lhs.amount == rhs.amount &&
+            lhs.description == rhs.description &&
+            lhs.effectiveDate == rhs.effectiveDate
+    }
+}
