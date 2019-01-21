@@ -41,12 +41,18 @@ class TransactionListPresenter: TransactionListPresentationLogic {
         var transactions: [TransactionViewModel] = []
         
         for transaction in data.transactions {
+            var latitude = 0.0
+            var longitude = 0.0
+            
             let dateFormatted = transaction.date.formatDateString()
             let amoutFormatted = transaction.amount.formatCurrency()
-            let latitude = Double(transaction.coordinates.extractCoordinates()[1]) ?? 0.0
-            let longitude = Double(transaction.coordinates.extractCoordinates()[0]) ?? 0.0
             let effectiveDateFormatted = transaction.effectiveDate.formatDateString()
             let transactionType: TransactionType = transaction.amount.contains("-") ? .debit : .credit
+            
+            if transaction.coordinates.extractCoordinates().count == 2 {
+                latitude = Double(transaction.coordinates.extractCoordinates()[1]) ?? 0.0
+                longitude = Double(transaction.coordinates.extractCoordinates()[0]) ?? 0.0
+            }
             
             let viewModel = TransactionViewModel(date: dateFormatted,
                                                  amount: amoutFormatted,

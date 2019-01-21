@@ -10,27 +10,29 @@ import UIKit
 import MapKit
 
 class TransactionDetailsViewController: UIViewController {
-
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var headerContentView: UIView!
-    @IBOutlet weak var infosContentView: UIView!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableContentViewHeightConstraint: NSLayoutConstraint!
+    //MARK: Outlets
+    @IBOutlet weak private var mapView: MKMapView!
+    @IBOutlet weak private var headerContentView: UIView!
+    @IBOutlet weak private var infosContentView: UIView!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var tableContentViewHeightConstraint: NSLayoutConstraint!
     
+    //MARK: Properties
     var transaction: TransactionViewModel?
-    var latitude: Double?
-    var longitude: Double?
-    var tableViewData: [(title: String, description: String)] = []
-    let regionRadius: CLLocationDistance = 800000
+    private var latitude: Double?
+    private var longitude: Double?
+    private var tableViewData: [(title: String, description: String)] = []
+    private let regionRadius: CLLocationDistance = 800000
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
     }
     
-    func setup() {
+    private func setup() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -43,13 +45,13 @@ class TransactionDetailsViewController: UIViewController {
         self.tableView.register(UINib(nibName: "DescriptionItemCell", bundle: nil), forCellReuseIdentifier: "DescriptionItemCell")
     }
     
-    func configViews() {
+    private func configViews() {
         self.infosContentView.layer.cornerRadius = 8
         self.headerContentView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
         self.infosContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
     }
     
-    func setTransactionInfos() {
+    private func setTransactionInfos() {
         self.descriptionLabel.text = transaction?.description
         
         self.tableViewData.append((title: "Value:", description: transaction?.amount.formatCurrency() ?? ""))
@@ -62,34 +64,40 @@ class TransactionDetailsViewController: UIViewController {
         self.tableView.reloadData()
     }
     
-    func setTransactionLocation() {
+    private func setTransactionLocation() {
         self.latitude = transaction?.latitude
         self.longitude = transaction?.longitude
         
         setLocationOnTheMap()
     }
     
-    func setLocationOnTheMap() {
+    private func setLocationOnTheMap() {
         let cityLocation = CLLocation(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
         centerMapOnLocation(location: cityLocation)
     }
     
-    func centerMapOnLocation(location: CLLocation) {
+    private func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
                                                   latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         self.mapView.setRegion(coordinateRegion, animated: true)
         addPinOnMap()
     }
     
-    func addPinOnMap() {
+    private func addPinOnMap() {
         let annotation = MKPointAnnotation()
         let pointCoord = CLLocationCoordinate2D(latitude: self.latitude ?? 0.0, longitude: self.longitude ?? 0.0)
         annotation.coordinate = pointCoord
     
         self.mapView.addAnnotation(annotation)
     }
+    
+    //MARK: Actions
+    @IBAction func backButtonPressed(_ sender: Any) {
+        TransactionAppRouter.popView()
+    }
 }
 
+//MARK: UITableViewDelegate / UITableViewDataSource
 extension TransactionDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.count
@@ -102,11 +110,5 @@ extension TransactionDetailsViewController: UITableViewDelegate, UITableViewData
         cell.setContent(title: tableViewData[indexPath.row].title, description: tableViewData[indexPath.row].description)
         
         return cell
-    }
-}
-
-extension TransactionDetailsViewController {
-    @IBAction func backButtonPressed(_ sender: Any) {
-        TransactionAppRouter.popView()
     }
 }

@@ -18,34 +18,31 @@ protocol TransactionsListDisplayLogic: class {
 
 class TransactionsListViewController: UIViewController {
     
-    @IBOutlet weak var errorView: UIView!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var errorMessage: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var totalBalanceLabel: UILabel!
-    @IBOutlet weak var balancePeriodLabel: UILabel!
+    //MARK: Outlets
+    @IBOutlet weak private var errorView: UIView!
+    @IBOutlet weak private var headerView: UIView!
+    @IBOutlet weak private var loadingView: UIView!
+    @IBOutlet weak private var errorMessage: UILabel!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var userImageView: UIImageView!
+    @IBOutlet weak private var totalBalanceLabel: UILabel!
+    @IBOutlet weak private var balancePeriodLabel: UILabel!
 
-    var nextpage = ""
-    var transactionData: [TransactionViewModel] = []
-    var interactor: TransactionListInteractor?
+    //MARK: Properties
+    private var nextpage = ""
+    private var transactionData: [TransactionViewModel] = []
+    private var interactor: TransactionListInteractor?
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        configView()
+        self.interactor?.loadUserImage()
         self.interactor?.getTransactionsList()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.interactor?.loadUserImage()
-    }
-    
-    fileprivate func setup() {
+    private func setup() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -56,9 +53,11 @@ class TransactionsListViewController: UIViewController {
         let presenter = TransactionListPresenter()
         presenter.viewController = self
         interactor.presenter = presenter
+        
+        configView()
     }
     
-    func verifyIfHasNextPage() {
+    private func verifyIfHasNextPage() {
         let hasNext = !self.nextpage.isEmpty
         if hasNext {
             self.interactor?.getTransactionsList(page: self.nextpage)
@@ -70,11 +69,17 @@ class TransactionsListViewController: UIViewController {
         self.headerView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
     }
     
-    fileprivate func registerTableViewCells() {
+    private func registerTableViewCells() {
         self.tableView.register(UINib(nibName: "BalanceItemCell", bundle: nil), forCellReuseIdentifier: "BalanceItemCell")
+    }
+    
+    //MARK: Actions
+    @IBAction func userProfilePressed(_ sender: Any) {
+        TransactionAppRouter.routeToUserProfile()
     }
 }
 
+//MARK: TransactionsListDisplayLogic
 extension TransactionsListViewController: TransactionsListDisplayLogic {
     
     func hideLoadingView() {
@@ -111,6 +116,7 @@ extension TransactionsListViewController: TransactionsListDisplayLogic {
     }
 }
 
+//MARK: UITableViewDelegate / UITableViewDataSource
 extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactionData.count
@@ -133,11 +139,5 @@ extension TransactionsListViewController: UITableViewDelegate, UITableViewDataSo
         if indexPath.row == self.transactionData.count - 1 {
             self.verifyIfHasNextPage()
         }
-    }
-}
-
-extension TransactionsListViewController {
-    @IBAction func userProfilePressed(_ sender: Any) {
-        TransactionAppRouter.routeToUserProfile()
     }
 }

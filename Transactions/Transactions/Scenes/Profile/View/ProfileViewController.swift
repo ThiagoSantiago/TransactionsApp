@@ -20,6 +20,7 @@ protocol ProfileDisplayLogic: class {
 
 class ProfileViewController: UIViewController {
     
+    //MARK: Outlets
     @IBOutlet weak private var errorMessageLabel: UILabel!
     @IBOutlet weak private var errorView: UIView!
     @IBOutlet weak private var loadingView: UIView!
@@ -30,10 +31,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak private var changePhotoButton: UIButton!
     @IBOutlet weak private var tableView: UITableView!
     
+     //MARK: Properties
     private var interactor: ProfileInteractor?
     private let imagePicker = UIImagePickerController()
     fileprivate var tableViewData: UserViewModel = []
 
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +75,7 @@ class ProfileViewController: UIViewController {
         self.headerContentView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
     }
     
+    //MARK: Actions
     @IBAction func backButtonPressed(_ sender: Any) {
         TransactionAppRouter.popView()
     }
@@ -99,6 +103,8 @@ class ProfileViewController: UIViewController {
     }
 }
 
+
+//MARK: ProfileDisplayLogic
 extension ProfileViewController: ProfileDisplayLogic {
     
     func hideLoading() {
@@ -126,6 +132,7 @@ extension ProfileViewController: ProfileDisplayLogic {
     }
 }
 
+//MARK: UITableViewDelegate / UITableViewDataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.count
@@ -141,6 +148,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: UIImagePickerControllerDelegate / UINavigationControllerDelegate
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

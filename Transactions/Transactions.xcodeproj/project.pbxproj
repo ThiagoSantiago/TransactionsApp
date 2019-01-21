@@ -17,7 +17,6 @@
 		18AD92FA21EF864600C0D0C4 /* BalanceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AD92F821EF864600C0D0C4 /* BalanceItemCell.xib */; };
 		18AD92FF21F0094F00C0D0C4 /* TransactionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92FE21F0094F00C0D0C4 /* TransactionsWorker.swift */; };
 		18AD930221F09C1500C0D0C4 /* TransactionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD930121F09C1500C0D0C4 /* TransactionsAPI.swift */; };
-		18AD930421F09C4C00C0D0C4 /* GrenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD930321F09C4C00C0D0C4 /* GrenericResponse.swift */; };
 		18AD930621F09C6E00C0D0C4 /* TransactionsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD930521F09C6E00C0D0C4 /* TransactionsAPIError.swift */; };
 		18AD930921F0B31600C0D0C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD930821F0B31600C0D0C4 /* Constants.swift */; };
 		18D9C18921F4F4AD007EFB33 /* TransactionsWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9C18821F4F4AD007EFB33 /* TransactionsWorkerMock.swift */; };
@@ -74,7 +73,6 @@
 		18AD92F821EF864600C0D0C4 /* BalanceItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceItemCell.xib; sourceTree = "<group>"; };
 		18AD92FE21F0094F00C0D0C4 /* TransactionsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsWorker.swift; sourceTree = "<group>"; };
 		18AD930121F09C1500C0D0C4 /* TransactionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAPI.swift; sourceTree = "<group>"; };
-		18AD930321F09C4C00C0D0C4 /* GrenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrenericResponse.swift; sourceTree = "<group>"; };
 		18AD930521F09C6E00C0D0C4 /* TransactionsAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAPIError.swift; sourceTree = "<group>"; };
 		18AD930821F0B31600C0D0C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18D9C18821F4F4AD007EFB33 /* TransactionsWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsWorkerMock.swift; sourceTree = "<group>"; };
@@ -154,8 +152,8 @@
 		18AD92CB21EF61BD00C0D0C4 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
-				18AD930721F0B2FF00C0D0C4 /* Common */,
 				18AD92EC21EF64B900C0D0C4 /* AppDelegate */,
+				18AD930721F0B2FF00C0D0C4 /* Common */,
 				18AD92FB21F0081600C0D0C4 /* Router */,
 				18AD92ED21EF651A00C0D0C4 /* Scenes */,
 				18AD92FC21F0083000C0D0C4 /* Network */,
@@ -255,7 +253,6 @@
 			children = (
 				18AD930021F09A7600C0D0C4 /* Workers */,
 				18AD930121F09C1500C0D0C4 /* TransactionsAPI.swift */,
-				18AD930321F09C4C00C0D0C4 /* GrenericResponse.swift */,
 				18AD930521F09C6E00C0D0C4 /* TransactionsAPIError.swift */,
 			);
 			path = Network;
@@ -579,7 +576,6 @@
 				18AD92CD21EF61BD00C0D0C4 /* AppDelegate.swift in Sources */,
 				18DC135F21F2051B00A8436C /* Colors.swift in Sources */,
 				18AD930621F09C6E00C0D0C4 /* TransactionsAPIError.swift in Sources */,
-				18AD930421F09C4C00C0D0C4 /* GrenericResponse.swift in Sources */,
 				18AD92F921EF864600C0D0C4 /* BalanceItemCell.swift in Sources */,
 				18AD92FF21F0094F00C0D0C4 /* TransactionsWorker.swift in Sources */,
 				18DC135821F1707E00A8436C /* UserInfo.swift in Sources */,
