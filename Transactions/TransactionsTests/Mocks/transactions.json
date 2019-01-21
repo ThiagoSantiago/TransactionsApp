@@ -1,0 +1,387 @@
+[
+  {
+    "coordinates": "4.8432112, 52.3872824",
+    "date": "8-01-18 14:18",
+    "effective date": "9-01-18 14:18",
+    "description": "Transaction 1",
+    "amount": "-86,21"
+  },
+  {
+    "coordinates": "4.8428249, 52.3875443",
+    "date": "9-01-18 13:12",
+    "effective date": "10-01-18 13:12",
+    "description": "Transaction 2",
+    "amount": "-81,53"
+  },
+  {
+    "coordinates": "4.8422241, 52.3877146",
+    "date": "18-01-18 20:39",
+    "effective date": "19-01-18 20:39",
+    "description": "Transaction 3",
+    "amount": "10,47"
+  },
+  {
+    "coordinates": "4.8417091, 52.3876491",
+    "date": "20-01-18 11:30",
+    "effective date": "21-01-18 11:30",
+    "description": "Transaction 4",
+    "amount": "-24,23"
+  },
+  {
+    "coordinates": "4.8413658, 52.3874920",
+    "date": "24-01-18 14:27",
+    "effective date": "25-01-18 14:27",
+    "description": "Transaction 5",
+    "amount": "-78,96"
+  },
+  {
+    "coordinates": "4.8412371, 52.3872431",
+    "date": "30-01-18 8:39",
+    "effective date": "31-01-18 8:39",
+    "description": "Transaction 6",
+    "amount": "-60,04"
+  },
+  {
+    "coordinates": "4.8412156, 52.3870074",
+    "date": "30-01-18 19:55",
+    "effective date": "31-01-18 19:55",
+    "description": "Transaction 7",
+    "amount": "30,66"
+  },
+  {
+    "coordinates": "4.8415160, 52.3868371",
+    "date": "5-02-18 8:54",
+    "effective date": "6-02-18 8:54",
+    "description": "Transaction 8",
+    "amount": "-13,04"
+  },
+  {
+    "coordinates": "4.8418379, 52.3866538",
+    "date": "11-02-18 8:08",
+    "effective date": "12-02-18 8:08",
+    "description": "Transaction 9",
+    "amount": "28,75"
+  },
+  {
+    "coordinates": "4.8421383, 52.3865490",
+    "date": "15-02-18 4:08",
+    "effective date": "16-02-18 4:08",
+    "description": "Transaction 10",
+    "amount": "38,46"
+  },
+  {
+    "coordinates": "4.8425031, 52.3863657",
+    "date": "16-02-18 4:55",
+    "effective date": "17-02-18 4:55",
+    "description": "Transaction 11",
+    "amount": "48,50"
+  },
+  {
+    "coordinates": "4.8428249, 52.3861954",
+    "date": "17-02-18 17:26",
+    "effective date": "18-02-18 17:26",
+    "description": "Transaction 12",
+    "amount": "20,83"
+  },
+  {
+    "coordinates": "4.8431253, 52.3859466",
+    "date": "21-02-18 23:19",
+    "effective date": "22-02-18 23:19",
+    "description": "Transaction 13",
+    "amount": "-19,05"
+  },
+  {
+    "coordinates": "4.8434901, 52.3861168",
+    "date": "22-02-18 13:18",
+    "effective date": "23-02-18 13:18",
+    "description": "Transaction 14",
+    "amount": "56,62"
+  },
+  {
+    "coordinates": "4.8439407, 52.3863526",
+    "date": "25-02-18 3:55",
+    "effective date": "26-02-18 3:55",
+    "description": "Transaction 15",
+    "amount": "21,43"
+  },
+  {
+    "coordinates": "4.8442197, 52.3864835",
+    "date": "25-02-18 13:21",
+    "effective date": "26-02-18 13:21",
+    "description": "Transaction 16",
+    "amount": "-1,14"
+  },
+  {
+    "coordinates": "4.8443913, 52.3867062",
+    "date": "25-02-18 22:41",
+    "effective date": "26-02-18 22:41",
+    "description": "Transaction 17",
+    "amount": "4,46"
+  },
+  {
+    "coordinates": "4.8445845, 52.3870467",
+    "date": "26-02-18 21:55",
+    "effective date": "27-02-18 21:55",
+    "description": "Transaction 18",
+    "amount": "78,64"
+  },
+  {
+    "coordinates": "4.8446274, 52.3873348",
+    "date": "4-03-18 0:19",
+    "effective date": "5-03-18 0:19",
+    "description": "Transaction 19",
+    "amount": "98,10"
+  },
+  {
+    "coordinates": "4.8444772, 52.3875050",
+    "date": "6-03-18 10:05",
+    "effective date": "7-03-18 10:05",
+    "description": "Transaction 20",
+    "amount": "-37,01"
+  },
+  {
+    "coordinates": "4.8440909, 52.3877015",
+    "date": "9-03-18 9:20",
+    "effective date": "10-03-18 9:20",
+    "description": "Transaction 21",
+    "amount": "25,22"
+  },
+  {
+    "coordinates": "4.8436618, 52.3876360",
+    "date": "9-03-18 13:00",
+    "effective date": "10-03-18 13:00",
+    "description": "Transaction 22",
+    "amount": "22,83"
+  },
+  {
+    "coordinates": "4.8434043, 52.3874134",
+    "date": "9-03-18 18:18",
+    "effective date": "10-03-18 18:18",
+    "description": "Transaction 23",
+    "amount": "-70,78"
+  },
+  {
+    "coordinates": "4.8432755, 52.3872824",
+    "date": "26-03-18 12:07",
+    "effective date": "27-03-18 12:07",
+    "description": "Transaction 24",
+    "amount": "76,12"
+  },
+  {
+    "coordinates": "4.8432112, 52.3872825",
+    "date": "29-03-18 16:19",
+    "effective date": "30-03-18 16:19",
+    "description": "Transaction 25",
+    "amount": "45,53"
+  },
+  {
+    "coordinates": "4.8428249, 52.3875444",
+    "date": "30-03-18 12:15",
+    "effective date": "31-03-18 12:15",
+    "description": "Transaction 26",
+    "amount": "-43,88"
+  },
+  {
+    "coordinates": "4.8422241, 52.3877147",
+    "date": "31-03-18 14:18",
+    "effective date": "1-04-18 14:18",
+    "description": "Transaction 27",
+    "amount": "98,75"
+  },
+  {
+    "coordinates": "4.8417091, 52.3876492",
+    "date": "3-04-18 0:54",
+    "effective date": "4-04-18 0:54",
+    "description": "Transaction 28",
+    "amount": "35,99"
+  },
+  {
+    "coordinates": "4.8413658, 52.3874921",
+    "date": "14-04-18 4:34",
+    "effective date": "15-04-18 4:34",
+    "description": "Transaction 29",
+    "amount": "42,37"
+  },
+  {
+    "coordinates": "4.8412371, 52.3872432",
+    "date": "18-04-18 12:37",
+    "effective date": "19-04-18 12:37",
+    "description": "Transaction 30",
+    "amount": "44,34"
+  },
+  {
+    "coordinates": "4.8412156, 52.3870075",
+    "date": "19-04-18 21:27",
+    "effective date": "20-04-18 21:27",
+    "description": "Transaction 31",
+    "amount": "-8,25"
+  },
+  {
+    "coordinates": "4.8415160, 52.3868372",
+    "date": "21-04-18 15:47",
+    "effective date": "22-04-18 15:47",
+    "description": "Transaction 32",
+    "amount": "-28,98"
+  },
+  {
+    "coordinates": "4.8418379, 52.3866539",
+    "date": "21-04-18 21:04",
+    "effective date": "22-04-18 21:04",
+    "description": "Transaction 33",
+    "amount": "-74,62"
+  },
+  {
+    "coordinates": "4.8421383, 52.3865491",
+    "date": "28-04-18 4:27",
+    "effective date": "29-04-18 4:27",
+    "description": "Transaction 34",
+    "amount": "83,61"
+  },
+  {
+    "coordinates": "4.8425031, 52.3863658",
+    "date": "5-05-18 3:41",
+    "effective date": "6-05-18 3:41",
+    "description": "Transaction 35",
+    "amount": "79,92"
+  },
+  {
+    "coordinates": "4.8428249, 52.3861955",
+    "date": "10-05-18 18:07",
+    "effective date": "11-05-18 18:07",
+    "description": "Transaction 36",
+    "amount": "4,12"
+  },
+  {
+    "coordinates": "4.8431253, 52.3859467",
+    "date": "16-05-18 2:58",
+    "effective date": "17-05-18 2:58",
+    "description": "Transaction 37",
+    "amount": "-90,50"
+  },
+  {
+    "coordinates": "4.8434901, 52.3861169",
+    "date": "17-05-18 2:32",
+    "effective date": "18-05-18 2:32",
+    "description": "Transaction 38",
+    "amount": "74,94"
+  },
+  {
+    "coordinates": "4.8439407, 52.3863527",
+    "date": "18-05-18 17:58",
+    "effective date": "19-05-18 17:58",
+    "description": "Transaction 39",
+    "amount": "42,95"
+  },
+  {
+    "coordinates": "4.8442197, 52.3864836",
+    "date": "18-05-18 21:48",
+    "effective date": "19-05-18 21:48",
+    "description": "Transaction 40",
+    "amount": "69,68"
+  },
+  {
+    "coordinates": "4.8443913, 52.3867063",
+    "date": "24-05-18 1:15",
+    "effective date": "25-05-18 1:15",
+    "description": "Transaction 41",
+    "amount": "-26,88"
+  },
+  {
+    "coordinates": "4.8445845, 52.3870468",
+    "date": "28-05-18 19:08",
+    "effective date": "29-05-18 19:08",
+    "description": "Transaction 42",
+    "amount": "-51,92"
+  },
+  {
+    "coordinates": "4.8446274, 52.3873349",
+    "date": "7-06-18 12:12",
+    "effective date": "8-06-18 12:12",
+    "description": "Transaction 43",
+    "amount": "-9,20"
+  },
+  {
+    "coordinates": "4.8444772, 52.3875051",
+    "date": "8-06-18 5:06",
+    "effective date": "9-06-18 5:06",
+    "description": "Transaction 44",
+    "amount": "25,97"
+  },
+  {
+    "coordinates": "4.8440909, 52.3877016",
+    "date": "8-06-18 13:30",
+    "effective date": "9-06-18 13:30",
+    "description": "Transaction 45",
+    "amount": "-48,66"
+  },
+  {
+    "coordinates": "4.8436618, 52.3876361",
+    "date": "17-06-18 11:30",
+    "effective date": "18-06-18 11:30",
+    "description": "Transaction 46",
+    "amount": "34,50"
+  },
+  {
+    "coordinates": "4.8434043, 52.3874135",
+    "date": "18-06-18 11:27",
+    "effective date": "19-06-18 11:27",
+    "description": "Transaction 47",
+    "amount": "-17,05"
+  },
+  {
+    "coordinates": "4.8432755, 52.3872825",
+    "date": "20-06-18 15:20",
+    "effective date": "21-06-18 15:20",
+    "description": "Transaction 48",
+    "amount": "84,53"
+  },
+  {
+    "coordinates": "4.8432112, 52.3872826",
+    "date": "24-06-18 15:45",
+    "effective date": "25-06-18 15:45",
+    "description": "Transaction 49",
+    "amount": "46,73"
+  },
+  {
+    "coordinates": "4.8428249, 52.3875445",
+    "date": "26-06-18 7:22",
+    "effective date": "27-06-18 7:22",
+    "description": "Transaction 50",
+    "amount": "54,55"
+  },
+  {
+    "coordinates": "4.8422241, 52.3877148",
+    "date": "28-06-18 19:30",
+    "effective date": "29-06-18 19:30",
+    "description": "Transaction 51",
+    "amount": "-59,02"
+  },
+  {
+    "coordinates": "4.8417091, 52.3876493",
+    "date": "30-06-18 19:10",
+    "effective date": "1-07-18 19:10",
+    "description": "Transaction 52",
+    "amount": "-39,79"
+  },
+  {
+    "coordinates": "4.8413658, 52.3874922",
+    "date": "2-07-18 11:10",
+    "effective date": "3-07-18 11:10",
+    "description": "Transaction 53",
+    "amount": "98,19"
+  },
+  {
+    "coordinates": "4.8412371, 52.3872433",
+    "date": "3-07-18 7:46",
+    "effective date": "4-07-18 7:46",
+    "description": "Transaction 54",
+    "amount": "79,30"
+  },
+  {
+    "coordinates": "4.8412156, 52.3870076",
+    "date": "4-07-18 4:00",
+    "effective date": "5-07-18 4:00",
+    "description": "Transaction 55",
+    "amount": "63,19"
+  }
+]
