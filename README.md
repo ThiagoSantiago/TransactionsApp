@@ -8,7 +8,7 @@
 
 # Architecture
 
-The architecture choosen for this project was the Clean-Swift.
+The architecture choosen for this project was the Clean Swift.
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*QV4nxWPd_sbGhoWO-X7PfQ.png)
 
@@ -33,3 +33,12 @@ https://hackernoon.com/introducing-clean-swift-architecture-vip-770a639ad7bf
 
     * Here you can see some user details like name, surname, birthdate, and nationality. 
     * Besides that, at the bottom of the screen, you can click on the button to change your user image.
+    
+    
+# About the tests
+
+Talking a little bit about the tests, I did test for the Worker class because is one of the most important classes in the app.\
+
+I wrote some test for some presenter's functions because they are responsible for treat data to pass to the view, so I thinked that was important guarantee thats they are doing the job correctly.\
+
+I didn't test the rest of the presenter or the interactor because the only thing that they are doing is call another layer.\
