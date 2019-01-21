@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		181F721021F3F706002DB322 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181F720F21F3F706002DB322 /* Assets.xcassets */; };
+		1880765E21F639650023E89D /* TransactionListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880765D21F639650023E89D /* TransactionListInteractorTests.swift */; };
+		1880766021F647620023E89D /* ProfilePresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880765F21F647620023E89D /* ProfilePresenterMock.swift */; };
+		1880766221F649E60023E89D /* ProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880766121F649E60023E89D /* ProfileInteractorTests.swift */; };
 		18AD92CD21EF61BD00C0D0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92CC21EF61BD00C0D0C4 /* AppDelegate.swift */; };
 		18AD92D721EF61BE00C0D0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AD92D521EF61BE00C0D0C4 /* LaunchScreen.storyboard */; };
 		18AD92E221EF61BE00C0D0C4 /* TransactionsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD92E121EF61BE00C0D0C4 /* TransactionsWorkerTests.swift */; };
@@ -61,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		181F720F21F3F706002DB322 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1880765D21F639650023E89D /* TransactionListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListInteractorTests.swift; sourceTree = "<group>"; };
+		1880765F21F647620023E89D /* ProfilePresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterMock.swift; sourceTree = "<group>"; };
+		1880766121F649E60023E89D /* ProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorTests.swift; sourceTree = "<group>"; };
 		18AD92C921EF61BD00C0D0C4 /* Transactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD92CC21EF61BD00C0D0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AD92D621EF61BE00C0D0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 				18AD92E121EF61BE00C0D0C4 /* TransactionsWorkerTests.swift */,
 				18D9C19621F53D5A007EFB33 /* ProfilePresenterTests.swift */,
 				18D9C19821F54368007EFB33 /* TransactionListPresenterTests.swift */,
+				1880765D21F639650023E89D /* TransactionListInteractorTests.swift */,
+				1880766121F649E60023E89D /* ProfileInteractorTests.swift */,
 			);
 			path = TransactionsTests;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 				18D9C18E21F4FEE6007EFB33 /* transactions.json */,
 				18D9C18821F4F4AD007EFB33 /* TransactionsWorkerMock.swift */,
 				18D9C19021F50CDE007EFB33 /* TransactionListPresenterMock.swift */,
+				1880765F21F647620023E89D /* ProfilePresenterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -609,9 +618,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18AD92E221EF61BE00C0D0C4 /* TransactionsWorkerTests.swift in Sources */,
+				1880765E21F639650023E89D /* TransactionListInteractorTests.swift in Sources */,
 				18D9C19921F54368007EFB33 /* TransactionListPresenterTests.swift in Sources */,
+				1880766021F647620023E89D /* ProfilePresenterMock.swift in Sources */,
 				18D9C19721F53D5A007EFB33 /* ProfilePresenterTests.swift in Sources */,
 				18D9C18921F4F4AD007EFB33 /* TransactionsWorkerMock.swift in Sources */,
+				1880766221F649E60023E89D /* ProfileInteractorTests.swift in Sources */,
 				18D9C19121F50CDE007EFB33 /* TransactionListPresenterMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

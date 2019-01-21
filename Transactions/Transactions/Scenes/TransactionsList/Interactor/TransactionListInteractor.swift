@@ -16,6 +16,12 @@ class TransactionListInteractor: TransactionListBusinessLogic {
     var presenter: TransactionListPresentationLogic?
     var worker = TransactionsWorker()
     
+    init(presenter: TransactionListPresentationLogic?,
+         worker: TransactionsWorker = TransactionsWorker()) {
+        self.presenter = presenter
+        self.worker = worker
+    }
+    
     func getTransactionsList(page: String = "transactions") {
         presenter?.presentLoadingView()
         worker.getTransactions(page: page, success: { transactionList in

@@ -14,14 +14,11 @@ class TransactionsWorkerMock: TransactionsWorker {
     var isFailure = false
     
     override func getTransactions(page: String, success: @escaping GetTransactionsSuccess, failure: @escaping Failure) {
-        TransactionsAPI.request( .getTransactionsList(page: page)) { (result: Result<TransactionList>, httpResponse)  in
-            if self.isFailure {
-                failure(TransactionsAPIError.unknownResponse)
-            } else {
-                let transactionList = TransactionList(transactions: self.createTransactionsList(), nextPage: "")
-                
-                success(transactionList)
-            }
+        if self.isFailure {
+            failure(TransactionsAPIError.unknownResponse)
+        } else {
+            let transactionList = TransactionList(transactions: self.createTransactionsList(), nextPage: "")
+            success(transactionList)
         }
     }
     
@@ -52,7 +49,16 @@ class TransactionsWorkerMock: TransactionsWorker {
         }
     }
     
-    override func loadImage(success: @escaping TransactionsWorkerMock.GetUserImageSuccess, failure: @escaping TransactionsWorkerMock.Failure) {}
+    override func loadImage(success: @escaping TransactionsWorkerMock.GetUserImageSuccess, failure: @escaping TransactionsWorkerMock.Failure) {
+        success(UIImage(named: "ic_wallet")!)
+    }
     
-    override func saveUser(image: UIImage, success: @escaping TransactionsWorkerMock.UserImageSavedSuccess, failure: @escaping TransactionsWorkerMock.Failure) {}
+    override func saveUser(image: UIImage, success: @escaping TransactionsWorkerMock.UserImageSavedSuccess, failure: @escaping TransactionsWorkerMock.Failure) {
+        if isFailure {
+            failure(TransactionsAPIError.unknownResponse)
+        } else {
+            success(true)
+        }
+    }
 }
+

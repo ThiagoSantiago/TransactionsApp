@@ -47,12 +47,10 @@ class TransactionsListViewController: UIViewController {
         self.tableView.dataSource = self
         
         self.registerTableViewCells()
-        
-        let interactor = TransactionListInteractor()
-        self.interactor = interactor
         let presenter = TransactionListPresenter()
+        let interactor = TransactionListInteractor(presenter: presenter)
+        self.interactor = interactor
         presenter.viewController = self
-        interactor.presenter = presenter
         
         configView()
     }

@@ -49,11 +49,10 @@ class ProfileViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let interactor = ProfileInteractor()
-        self.interactor = interactor
         let presenter = ProfilePresenter()
+        let interactor = ProfileInteractor(presenter: presenter)
+        self.interactor = interactor
         presenter.viewController = self
-        interactor.presenter = presenter
         
         self.registerTableViewCells()
         
