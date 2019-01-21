@@ -22,8 +22,8 @@ https://hackernoon.com/introducing-clean-swift-architecture-vip-770a639ad7bf
 
     * This screen displays the list of transactions, the total balance relative to the period and the user image.
     * When arriving at the end of the list, in case there are more transactions the loading is done and the balance updated.
-    * CLicking on the transaction you will be redirected to the Detail screen.
-    * CLicking on the user image you have access to the Profile screen.
+    * Clicking on the transaction you will be redirected to the Detail screen.
+    * Clicking on the user image you have access to the Profile screen.
     
 * Transaction details:
 
