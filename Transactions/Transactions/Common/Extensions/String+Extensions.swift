@@ -40,13 +40,15 @@ extension String {
     
     func extractCoordinates() -> [String]{
         let coordinatesArray = self.split(separator: ",")
+        var stringLatitude = ""
+        var stringLongitude = ""
         
         if coordinatesArray.count == 2 {
-            let stringLatitude = "\(coordinatesArray[0])"
-            let stringLongitude = "\(coordinatesArray[1])"
+            stringLatitude = "\(coordinatesArray[0])"
+            stringLongitude = "\(coordinatesArray[1])"
         }
         
         
-        return ["",""]
+        return [stringLatitude,stringLongitude]
     }
 }

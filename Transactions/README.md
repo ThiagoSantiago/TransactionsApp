@@ -41,4 +41,4 @@ Talking a little bit about the tests, I did test for the Worker class because is
 
 I wrote some test for some presenter's functions because they are responsible for treat data to pass to the view, so I thought that was important guarantee that's they are doing the job correctly.
 
-I didn't test the rest of the presenter or the interactor because the only thing that they are doing is call another layer.
+And I wrote tests for the interactors too.

@@ -49,11 +49,10 @@ class ProfileViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        let interactor = ProfileInteractor()
-        self.interactor = interactor
         let presenter = ProfilePresenter()
+        let interactor = ProfileInteractor(presenter: presenter)
+        self.interactor = interactor
         presenter.viewController = self
-        interactor.presenter = presenter
         
         self.registerTableViewCells()
         
@@ -152,7 +151,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        guard let selectedImage = info[.editedImage] as? UIImage else { return }
         
         self.userImageView.image = selectedImage
         self.interactor?.saveUser(image: selectedImage)

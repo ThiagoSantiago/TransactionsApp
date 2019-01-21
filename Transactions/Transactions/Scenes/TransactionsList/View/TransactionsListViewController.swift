@@ -38,8 +38,13 @@ class TransactionsListViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        self.interactor?.loadUserImage()
         self.interactor?.getTransactionsList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.interactor?.loadUserImage()
     }
     
     private func setup() {
@@ -47,12 +52,10 @@ class TransactionsListViewController: UIViewController {
         self.tableView.dataSource = self
         
         self.registerTableViewCells()
-        
-        let interactor = TransactionListInteractor()
-        self.interactor = interactor
         let presenter = TransactionListPresenter()
+        let interactor = TransactionListInteractor(presenter: presenter)
+        self.interactor = interactor
         presenter.viewController = self
-        interactor.presenter = presenter
         
         configView()
     }

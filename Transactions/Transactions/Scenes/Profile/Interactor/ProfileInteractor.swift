@@ -16,6 +16,12 @@ class ProfileInteractor: ProfileBusinessLogic {
     var presenter: ProfilePresentationLogic?
     var worker = TransactionsWorker()
     
+    init(presenter: ProfilePresentationLogic?,
+         worker: TransactionsWorker = TransactionsWorker()) {
+        self.presenter = presenter
+        self.worker = worker
+    }
+    
     func getUserInfos() {
         self.presenter?.presenterLoadignView()
         worker.getUserInfo(success: { userInfo in
