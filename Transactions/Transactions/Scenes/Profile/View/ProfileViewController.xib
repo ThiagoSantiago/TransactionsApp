@@ -19,6 +19,7 @@
                 <outlet property="infoContentView" destination="eCh-0P-dVh" id="lJT-8W-ETJ"/>
                 <outlet property="loadingView" destination="udo-DE-dd9" id="zHs-dO-Lu8"/>
                 <outlet property="tableView" destination="njQ-h9-ue2" id="ggi-on-dcF"/>
+                <outlet property="tryAgainButton" destination="8ZA-hc-Ks7" id="m3v-Z3-Jnh"/>
                 <outlet property="userImageView" destination="r7N-z7-Fk1" id="lvX-Ef-PqR"/>
                 <outlet property="userNameLabel" destination="B1h-i9-tph" id="PKx-ST-elU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -118,15 +119,32 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-hc-Ks7">
+                            <rect key="frame" x="32" y="337" width="311" height="50"/>
+                            <color key="backgroundColor" red="0.14117647059999999" green="0.1764705882" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="hBf-LN-C8o"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Try again">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="tryAgainPressed:" destination="-1" eventType="touchUpInside" id="kBY-5b-YnC"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8ZA-hc-Ks7" secondAttribute="trailing" constant="32" id="LFJ-nu-OTg"/>
                         <constraint firstItem="nQO-ih-VpQ" firstAttribute="centerY" secondItem="cVH-NY-j9H" secondAttribute="centerY" id="N5R-zE-W0n"/>
+                        <constraint firstItem="8ZA-hc-Ks7" firstAttribute="leading" secondItem="cVH-NY-j9H" secondAttribute="leading" constant="32" id="Ouq-hq-lh8"/>
                         <constraint firstItem="nQO-ih-VpQ" firstAttribute="top" secondItem="eIG-FT-idC" secondAttribute="bottom" constant="30" id="Y3p-c3-Rmw"/>
                         <constraint firstItem="nQO-ih-VpQ" firstAttribute="centerX" secondItem="cVH-NY-j9H" secondAttribute="centerX" id="g1m-mm-D8H"/>
                         <constraint firstItem="eIG-FT-idC" firstAttribute="centerX" secondItem="cVH-NY-j9H" secondAttribute="centerX" id="kQ0-xY-qCa"/>
                         <constraint firstAttribute="trailing" secondItem="nQO-ih-VpQ" secondAttribute="trailing" constant="32" id="uxL-Np-X0p"/>
                         <constraint firstItem="nQO-ih-VpQ" firstAttribute="leading" secondItem="cVH-NY-j9H" secondAttribute="leading" constant="32" id="ywo-Ex-w5w"/>
+                        <constraint firstAttribute="bottom" secondItem="8ZA-hc-Ks7" secondAttribute="bottom" constant="30" id="za9-7d-0Dq"/>
                     </constraints>
                 </view>
                 <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udo-DE-dd9" userLabel="Loading View">
@@ -169,7 +187,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="udo-DE-dd9" secondAttribute="trailing" id="gqz-Ed-OwQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eCh-0P-dVh" secondAttribute="trailing" id="m67-Ek-3lY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="adX-6h-I0j" secondAttribute="trailing" id="oCe-4F-FnD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="udo-DE-dd9" secondAttribute="bottom" id="wec-6J-8so"/>
+                <constraint firstAttribute="bottom" secondItem="udo-DE-dd9" secondAttribute="bottom" id="wec-6J-8so"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>

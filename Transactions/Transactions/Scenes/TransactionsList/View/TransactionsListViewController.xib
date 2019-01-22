@@ -19,6 +19,7 @@
                 <outlet property="loadingView" destination="rfH-tq-3WR" id="MIi-hF-rry"/>
                 <outlet property="tableView" destination="f08-Za-SYT" id="iXv-Tu-gTS"/>
                 <outlet property="totalBalanceLabel" destination="JJP-fN-EXt" id="vqM-aX-iW1"/>
+                <outlet property="tryAgainButton" destination="umq-P3-Eet" id="aHT-FK-fgy"/>
                 <outlet property="userImageView" destination="Iqr-WE-5dk" id="PO5-Px-GBz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -103,14 +104,31 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umq-P3-Eet">
+                            <rect key="frame" x="32" y="337" width="311" height="50"/>
+                            <color key="backgroundColor" red="0.14117647059999999" green="0.1764705882" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="gRM-9O-ATJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Try again">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="tryAgainPressed:" destination="-1" eventType="touchUpInside" id="yYD-Gm-sGa"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="xGI-4Z-0uX" firstAttribute="top" secondItem="T5x-nR-VEs" secondAttribute="bottom" constant="30" id="AyL-Ts-BhM"/>
                         <constraint firstAttribute="trailing" secondItem="xGI-4Z-0uX" secondAttribute="trailing" constant="32" id="D1n-nT-Nj1"/>
                         <constraint firstItem="T5x-nR-VEs" firstAttribute="centerX" secondItem="5K7-2u-dgf" secondAttribute="centerX" id="Nft-K8-TEb"/>
+                        <constraint firstItem="umq-P3-Eet" firstAttribute="leading" secondItem="5K7-2u-dgf" secondAttribute="leading" constant="32" id="WMI-p3-FaM"/>
+                        <constraint firstAttribute="bottom" secondItem="umq-P3-Eet" secondAttribute="bottom" constant="30" id="ZYC-k8-hjM"/>
                         <constraint firstItem="xGI-4Z-0uX" firstAttribute="leading" secondItem="5K7-2u-dgf" secondAttribute="leading" constant="32" id="efd-C7-35r"/>
                         <constraint firstItem="xGI-4Z-0uX" firstAttribute="centerY" secondItem="5K7-2u-dgf" secondAttribute="centerY" constant="15" id="gch-ik-668"/>
+                        <constraint firstAttribute="trailing" secondItem="umq-P3-Eet" secondAttribute="trailing" constant="32" id="qcF-NQ-1lJ"/>
                         <constraint firstItem="xGI-4Z-0uX" firstAttribute="centerX" secondItem="5K7-2u-dgf" secondAttribute="centerX" id="v1C-Mr-8kK"/>
                     </constraints>
                 </view>

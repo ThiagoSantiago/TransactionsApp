@@ -21,15 +21,16 @@ protocol ProfileDisplayLogic: class {
 class ProfileViewController: UIViewController {
     
     //MARK: Outlets
-    @IBOutlet weak private var errorMessageLabel: UILabel!
     @IBOutlet weak private var errorView: UIView!
     @IBOutlet weak private var loadingView: UIView!
-    @IBOutlet weak private var headerContentView: UIView!
-    @IBOutlet weak private var userNameLabel: UILabel!
-    @IBOutlet weak private var userImageView: UIImageView!
-    @IBOutlet weak private var infoContentView: UIView!
-    @IBOutlet weak private var changePhotoButton: UIButton!
     @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var infoContentView: UIView!
+    @IBOutlet weak private var tryAgainButton: UIButton!
+    @IBOutlet weak private var headerContentView: UIView!
+    @IBOutlet weak private var errorMessageLabel: UILabel!
+    @IBOutlet weak private var userImageView: UIImageView!
+    @IBOutlet weak private var changePhotoButton: UIButton!
     
      //MARK: Properties
     private var interactor: ProfileInteractor?
@@ -68,6 +69,7 @@ class ProfileViewController: UIViewController {
     
     private func configViews() {
         self.infoContentView.layer.cornerRadius = 8
+        self.tryAgainButton.layer.cornerRadius = 25
         self.changePhotoButton.layer.cornerRadius = 25
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 40)
         self.infoContentView.setShadow(color: UIColor.black.cgColor, opacity: 0.6, shadowRadius: 5.0)
@@ -77,6 +79,11 @@ class ProfileViewController: UIViewController {
     //MARK: Actions
     @IBAction func backButtonPressed(_ sender: Any) {
         TransactionAppRouter.popView()
+    }
+    
+    @IBAction func tryAgainPressed(_ sender: Any){
+        interactor?.getUserInfos()
+        self.tryAgainButton.isEnabled = false
     }
     
     @IBAction func changePhotoPressed(_ sender: Any) {
@@ -121,6 +128,7 @@ extension ProfileViewController: ProfileDisplayLogic {
     func displayError(message: String) {
         self.errorView.isHidden = false
         self.errorMessageLabel.text = message
+        self.tryAgainButton.isEnabled = true
     }
     
     func displayUser(info: UserViewModel) {

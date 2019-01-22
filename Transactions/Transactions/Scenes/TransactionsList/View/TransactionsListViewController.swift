@@ -24,6 +24,7 @@ class TransactionsListViewController: UIViewController {
     @IBOutlet weak private var loadingView: UIView!
     @IBOutlet weak private var errorMessage: UILabel!
     @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var tryAgainButton: UIButton!
     @IBOutlet weak private var userImageView: UIImageView!
     @IBOutlet weak private var totalBalanceLabel: UILabel!
     @IBOutlet weak private var balancePeriodLabel: UILabel!
@@ -68,6 +69,7 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func configView() {
+        self.tryAgainButton.layer.cornerRadius = 25
         self.userImageView.setImageBorder(color: UIColor.white.cgColor, width: 2.0, radius: 30)
         self.headerView.setGradient(startColor: Colors.pink.cgColor, finalColor: Colors.blue.cgColor)
     }
@@ -79,6 +81,11 @@ class TransactionsListViewController: UIViewController {
     //MARK: Actions
     @IBAction func userProfilePressed(_ sender: Any) {
         TransactionAppRouter.routeToUserProfile()
+    }
+    
+    @IBAction func tryAgainPressed(_ sender: Any) {
+        self.interactor?.getTransactionsList()
+        self.tryAgainButton.isEnabled = false
     }
 }
 
@@ -100,6 +107,7 @@ extension TransactionsListViewController: TransactionsListDisplayLogic {
     func displayError(message: String) {
         self.errorView.isHidden = false
         self.errorMessage.text = message
+        self.tryAgainButton.isEnabled = true
     }
     
     func displayTransactions(list: TransactionsListViewModel) {
