@@ -1,5 +1,7 @@
 # TransactionsApp
 
+[![codebeat badge](https://codebeat.co/badges/fadfb229-a7f1-4799-be76-58f88a5667e8)](https://codebeat.co/projects/github-com-thiagosantiago-transactionsapp-master)
+
 ![alt text](https://i.pinimg.com/originals/81/b3/2b/81b32bef7486f3edd0ec1f67bc924b68.png)
 
 # Requirements
