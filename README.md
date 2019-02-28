@@ -1,6 +1,6 @@
 # TransactionsApp
 
-[![codebeat badge](https://codebeat.co/badges/fadfb229-a7f1-4799-be76-58f88a5667e8)](https://codebeat.co/projects/github-com-thiagosantiago-transactionsapp-master)
+[![Build Status](https://app.bitrise.io/app/4128018729810556/status.svg?token=Fgo6hzJ1BiXgfRAB7OS3HA&branch=master)](https://app.bitrise.io/app/4128018729810556) [![codebeat badge](https://codebeat.co/badges/fadfb229-a7f1-4799-be76-58f88a5667e8)](https://codebeat.co/projects/github-com-thiagosantiago-transactionsapp-master)
 
 ![alt text](https://i.pinimg.com/originals/81/b3/2b/81b32bef7486f3edd0ec1f67bc924b68.png)
 
